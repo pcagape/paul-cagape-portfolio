@@ -1,0 +1,9 @@
+.contact-form {
+    padding-top: 75px;    
+    border: 2px dotted green;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

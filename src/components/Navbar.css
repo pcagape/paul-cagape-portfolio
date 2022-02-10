@@ -1,0 +1,133 @@
+.navbar {
+  opacity: 0.8;
+  background-color: rgb(61, 61, 61);
+  position: absolute;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  top: 0;
+  z-index: 999;
+  width:100%;
+  
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  width: 100vw;
+}
+
+.navbar-logo {
+  color: rgb(255, 255, 255);
+  margin-left: 3rem;
+  padding: 0 16px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  height: 75px;
+}
+
+.fa-typo3 {
+  margin-left: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  width: 90vw;
+  justify-content: end;
+  margin: 1rem 2rem;
+}
+
+.nav-item {
+  height: 75px;
+  justify-content: center;
+    align-items: center;
+}
+
+.nav-links {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+}
+
+.navbar-logo:hover, .nav-links:hover {
+  background-color: white;
+  color: rgb(90, 90, 90);
+  border-bottom: 4px solid #fff;
+  transition: all 400ms ease-in-out;
+}
+
+.nav-links-mobile {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 960px) {
+  .NavbarItems {
+    position: relative;
+  }
+
+  .nav-menu {
+    display: block;
+    flex-direction: column;
+    width: 100%;
+    height: 91vh;
+    position: absolute;
+    top: 75px;
+    left: 100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    margin: 0px;
+    z-index: 1000;
+    padding: 0px;
+  }
+
+  .nav-menu.active {
+    background: #242222;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1000;
+  }
+
+  .nav-links {
+    padding: 2rem;
+    width: 100%;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-links:hover {
+    background-color: #fff;
+    color: #242424;
+    border-radius: 0;
+  }
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+}

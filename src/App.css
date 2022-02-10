@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+.hex1-color { color: #034C8C !important; } .hex1-background-color { background-color: #034C8C !important; }
+.hex2-color { color: #0487D9 !important; } .hex2-background-color { background-color: #0487D9 !important; }
+.hex3-color { color: #D9A404 !important; } .hex3-background-color { background-color: #D9A404 !important; }
+.hex4-color { color: #A67D03 !important; } .hex4-background-color { background-color: #A67D03 !important; }
+.hex5-color { color: #8C5C03 !important; } .hex5-background-color { background-color: #8C5C03 !important; }
+
+html, body {
+  font-family: "Times New Roman", Georgia, Serif;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* width: 100%;
+  height: 100%; */
+  margin: 0;
+  position: absolute;
+  background-color: rgb(148, 148, 148);
+  z-index: -9999;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+#root, .main-app {
+  width: 100%;
   min-height: 100vh;
+  width: 100vw;
+}
+
+.main-app {
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* flex-direction: column; */
+  /* flex-wrap: wrap;  */
+  /* justify-content: space-around; */
 }
 
-.App-link {
-  color: #61dafb;
+.main-app > .app-window {
+  height: auto;
+  min-height: 100vh;
+  width: 100vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+
+.main-app > video {
+  position: absolute;
+  display: flex;
+  max-height: 100vh;
+  left: 0px;
+  top: 0px;
+  z-index: -999;
+}
+
+.main-app .app-content {
+  width: 100vw;
+  position: absolute;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.main-app .app-content.window-hide {
+  top: -100vh;
+  transition: all 0.8s ease, opacity 2s;
+  opacity: 0;
+}
+
+.main-app .app-content.window-show {
+  left: 0px;
+  top: 0px;
+  transition: all 0.8s ease, opacity 2s;
+  opacity: 1;
+}
+
+.main-app .app-window .app-content > :first-child {
+  padding-top: 75px;
 }

@@ -1,0 +1,97 @@
+.home-content > div {
+    /* border: 2px dotted red; */
+}
+
+.dev-bio {
+    min-height: 100vh;
+    border: 2px dotted red;
+}
+
+.dev-bio .dev-upper {
+    border: 2px dotted green;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.dev-bio .dev-lower {
+    padding-bottom: 25px;
+    border: 2px dotted yellow;
+    height: auto;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    align-items: center;
+    padding-left: 20vw;
+    padding-right: 20vw;
+    padding-bottom: 150px;
+}
+
+.dev-bio .dev-upper .dev-name-prof {
+    margin: 25px;
+}
+
+.dev-bio .dev-upper .dev-name-prof .dev-name {
+    font-size: 45px;
+    margin: 0px;
+}
+
+.dev-bio .dev-upper .dev-name-prof .dev-prof {
+    font-size: 27px;
+    margin: 0px;
+}
+
+.dev-bio .dev-upper .dev-pic {
+    height: inherit;
+    border-radius: 50%;
+    height: 250px;
+}
+
+.dev-bio .dev-lower .dev-msg {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.dev-bio .dev-lower .dev-msg-hi {
+    width: 100%;
+    margin-bottom: 0px;
+    text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+    .dev-bio .dev-upper .dev-pic {
+        height: 150px;
+    }
+
+    .dev-bio .dev-lower {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .dev-bio .dev-upper {
+        flex-direction: column-reverse;
+    }
+
+    .dev-bio .dev-upper .dev-name-prof .dev-name {
+        font-size: 8vw;
+    }
+
+    .dev-bio .dev-upper .dev-name-prof .dev-prof {
+        font-size: 5vw;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .dev-bio .dev-upper .dev-name-prof .dev-name {
+        font-size: 26px;
+    }
+
+    .dev-bio .dev-upper .dev-name-prof .dev-prof {
+        font-size: 19px;
+    }
+}
