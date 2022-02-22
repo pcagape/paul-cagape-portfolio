@@ -1,10 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import './App.css';
+
+// Components
+import Background from './components/Background';
 import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import Contact from './pages/Contact';
-import Projects from './pages/Projects';
+import Footer from './components/Footer';
+
+// Pages
+import Home from './pages/Home.jsx';
+import Skills from './pages/Skills.jsx';
+import Contact from './pages/Contact.jsx';
+import Projects from './pages/Projects.jsx';
 
 
 
@@ -13,13 +19,15 @@ function App() {
     <div className='main-app'>
       <Router>
         <Navbar />
-        <video src='/videos/video-bg.mp4' autoPlay loop muted />
+        <Background />
         <Switch>
           <Route path='/' exact component={Home}/>
-          <Route path='/contact' component={Contact} />
+          <Route path='/skills' component={Skills} />
           <Route path='/projects' component={Projects} />
+          <Route path='/contact' component={Contact} />
           <Route path='/*' component={Home}/>
         </Switch>
+        <Footer/>
       </Router>
     </div>
   );

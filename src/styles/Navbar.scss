@@ -1,6 +1,7 @@
-.navbar {
+.main-app .navbar {
   opacity: 0.8;
-  background-color: rgb(61, 61, 61);
+  background-color: $ColorScheme2;
+  color: $ColorScheme5; 
   position: absolute;
   height: 75px;
   display: flex;
@@ -10,7 +11,7 @@
   top: 0;
   z-index: 999;
   width:100%;
-  
+  box-shadow: 0px 5px 100px black;
 }
 
 .navbar-container {
@@ -22,7 +23,7 @@
 }
 
 .navbar-logo {
-  color: rgb(255, 255, 255);
+  color: $ColorScheme5;
   margin-left: 3rem;
   padding: 0 16px;
   cursor: pointer;
@@ -56,7 +57,8 @@
 }
 
 .nav-links {
-  color: #fff;
+  border-radius: 0px;
+  color: $ColorScheme5; 
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -64,10 +66,15 @@
   height: 100%;
 }
 
-.navbar-logo:hover, .nav-links:hover {
-  background-color: white;
-  color: rgb(90, 90, 90);
-  border-bottom: 4px solid #fff;
+.navbar-logo:hover {
+  text-shadow: 0px 0px 15px $ColorScheme5;
+  transition: all 400ms ease-in-out;
+}
+
+.nav-links:hover {
+  @include selected-item;
+
+  border-radius: 10px;
   transition: all 400ms ease-in-out;
 }
 
@@ -82,6 +89,10 @@
 @media screen and (max-width: 960px) {
   .NavbarItems {
     position: relative;
+  }
+
+  .navbar-logo {
+    margin-left: 0px;
   }
 
   .nav-menu {
@@ -100,7 +111,7 @@
   }
 
   .nav-menu.active {
-    background: #242222;
+    background: $ColorScheme2;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
@@ -116,9 +127,10 @@
   }
 
   .nav-links:hover {
-    background-color: #fff;
-    color: #242424;
+    @include selected-item;
+
     border-radius: 0;
+    border-bottom: 0px solid $ColorScheme5;
   }
 
   .menu-icon {
@@ -129,5 +141,10 @@
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
+  }
+
+  .menu-icon a{
+    text-decoration: none;
+    color: $ColorScheme5;
   }
 }

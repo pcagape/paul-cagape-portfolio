@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import { Button } from '../components/Button';
-import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
-import './Home.css';
 
 
 function Home () {
   const [show, setShow] = useState(false);
+  const history = useHistory();
+
+  const goToContact = () => {
+    history.push('/contact');
+    // console.log();
+    // useNavigate('/contact');
+  }
 
   useEffect(() => {
     setShow(true);
@@ -19,7 +25,7 @@ function Home () {
             <h1 className='dev-name'>Paul Angielo Cagape</h1>
             <p className='dev-prof'>Web & Game Developer</p>
           </div>
-          <img className='dev-pic' src='../images/profile.jpg'/>
+          <img className='dev-pic' src='../images/profile.jpg' alt=''/>
         </div>
         <div className='dev-lower'>
           <p className='dev-msg dev-msg-hi'>
@@ -31,14 +37,13 @@ function Home () {
             </Link> page or you can just contact me if you want a word with me. Anyways, just take your time to look around my page.
           </p>
           <div className='buttons'>
-            <Button>Contact Me</Button>
+            <Button onClick={goToContact}>Contact Me</Button>
             <Button>Download CV</Button>
           </div>
           <p className='dev-msg'>
             Thank you for visiting!
           </p>
         </div>
-        <Footer/>
       </div>
     </div>
     

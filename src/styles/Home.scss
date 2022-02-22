@@ -1,14 +1,10 @@
-.home-content > div {
-    /* border: 2px dotted red; */
-}
-
-.dev-bio {
+.main-app .app-window .app-content.dev-bio {
+    flex-direction: column;
     min-height: 100vh;
-    border: 2px dotted red;
+    color: $ColorScheme5;
 }
 
 .dev-bio .dev-upper {
-    border: 2px dotted green;
     height: 300px;
     display: flex;
     flex-direction: row;
@@ -18,7 +14,6 @@
 
 .dev-bio .dev-lower {
     padding-bottom: 25px;
-    border: 2px dotted yellow;
     height: auto;
     /* display: flex;
     flex-direction: column;
@@ -34,12 +29,13 @@
 }
 
 .dev-bio .dev-upper .dev-name-prof .dev-name {
+    font-family: "MyFont1";
     font-size: 45px;
     margin: 0px;
 }
 
 .dev-bio .dev-upper .dev-name-prof .dev-prof {
-    font-size: 27px;
+    font-size: 30px;
     margin: 0px;
 }
 
@@ -53,14 +49,29 @@
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 27px;
     text-align: justify;
 }
 
+.dev-bio .dev-lower .dev-msg a, .dev-bio .dev-lower .dev-msg a:visited {
+    text-decoration: underline;
+    color: $ColorScheme5;
+}
+
+.dev-bio .dev-lower .dev-msg a:hover {
+    @include selected-item;
+    border-radius: 10px;
+}
+
 .dev-bio .dev-lower .dev-msg-hi {
+    padding-top: 20px;
     width: 100%;
     margin-bottom: 0px;
     text-align: left;
+}
+
+.dev-lower .buttons button {
+    margin: 5px;
 }
 
 @media screen and (max-width: 600px) {

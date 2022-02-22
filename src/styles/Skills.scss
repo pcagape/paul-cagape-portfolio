@@ -1,0 +1,72 @@
+.skills-body {
+    // background-color: $ColorScheme4;
+    // margin-top: 50px; 
+    margin-left: 25px;
+    margin-right: 25px;
+    // padding-bottom: 75px;
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    // @include flexCenter;
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+    flex-direction: column;
+
+    opacity: 0.8;
+    border: 1px solid $ColorScheme5;
+    
+    
+}
+
+.skills-body .skills-title {
+    width: 100%;
+    height: 60px;
+    @include flexCenter;
+}
+
+.skills-body .skills-title {
+    width: 100%;
+}
+
+.skills-body .skills-title h1 {
+    color: $ColorScheme5;
+    font-size: 40px;
+    margin: 5px;
+}
+
+.skills-body .skills-list {
+    width: 100%;
+    height: auto;
+    
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    border: 1px solid green !important;
+}
+
+.skills-body .skills-list .skill-item{
+    @include flexCenter;
+    flex-direction: column;
+
+    height: 150px;
+    width: 150px;
+    margin: 5px;
+}
+
+.skills-body .skills-list .skill-item img{
+    width: 100px;
+}
+
+.skills-body .skills-list .skill-item label{
+    font-family: "MyFont2";
+    color: $ColorScheme5;
+    margin-top: 10px;
+}
+
+.app-content div {
+    border: 1px dotted red;
+}
