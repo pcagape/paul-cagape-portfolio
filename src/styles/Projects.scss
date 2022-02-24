@@ -1,0 +1,84 @@
+
+.app-window .app-content .projects-container {
+    padding-top: 50px;
+}
+
+.projects-container .projects-title h1 {
+    color: $ColorScheme5;
+    font-size: 40px;
+    margin: 5px;
+}
+
+.projects-container .projects-list{
+    @include flexCenter;
+    
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.projects-container .projects-list .projects-item{
+    height: 150px;
+    width: 200px;
+    margin: 15px;
+}
+
+.projects-container .projects-list .projects-item img.projects-item-img{
+    width: 100%;
+}
+
+.projects-container .projects-list .projects-item .shown img.projects-item-img,
+.projects-container .projects-list .projects-item .shown img.projects-item-img-screenshot{
+    margin: 5px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+.projects-container .projects-list .projects-item .modal:not(.shown) img.projects-item-img-screenshot {
+    display: none;
+}
+
+.projects-container .projects-list .projects-item .shown img.projects-item-img-screenshot:hover{
+    // position: absolute;
+    z-index: 99999;
+    transform: scale(2);
+    transition: all 400ms ease-in-out;
+}
+
+.projects-container .projects-list .projects-item .shown .project-desc {
+    margin: 20px;
+    font-family: "MyFont1";
+    font-size: 17px;
+    color: $ColorScheme5;
+    text-align: justify;
+}
+
+.projects-container .projects-list .projects-item .project-links {
+    width: 100%;
+    @include flexCenter;
+    flex-wrap: wrap;
+}
+
+.projects-container .projects-list .projects-item :not(.shown) .project-desc{
+    display: none;
+}
+
+.projects-container .projects-list .projects-item .shown .project-desc{
+    display: block;
+}
+
+.projects-container .projects-list .projects-item .project-links a,
+.projects-container .projects-list .projects-item .project-links a:visited {
+    font-size: 17px;
+    text-decoration: underline;
+    color: $ColorScheme4;
+}
+
+.projects-container .projects-list .projects-item .project-links a:hover {
+    @include selected-item;
+    border-radius: 5px;
+}
+
+.projects-container .projects-list .projects-item .project-links .project-links-item {
+    margin: 10px;
+}

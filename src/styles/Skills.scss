@@ -1,22 +1,13 @@
-.skills-body {
-    // background-color: $ColorScheme4;
-    // margin-top: 50px; 
+.app-window .app-content .skills-body {
+    padding-top: 50px;
     margin-left: 25px;
     margin-right: 25px;
-    // padding-bottom: 75px;
     border-radius: 10px;
     width: 100%;
     height: auto;
-    // @include flexCenter;
     display: flex;
-    // justify-content: center;
-    // align-items: center;
     flex-direction: column;
-
     opacity: 0.8;
-    border: 1px solid $ColorScheme5;
-    
-    
 }
 
 .skills-body .skills-title {
@@ -35,38 +26,54 @@
     margin: 5px;
 }
 
+.skills-body .experience-list,
 .skills-body .skills-list {
     width: 100%;
     height: auto;
     
+    margin-top: 15px;
     display: flex;
     justify-content: center;
-    // align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
+}
 
-    border: 1px solid green !important;
+.skills-body .experience-list .exp-item{
+    @include flexCenter;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 250px;
+    margin: 5px;
+    justify-content: bottom;
+}
+
+.skills-body .experience-list .exp-item .exp-item-name {
+    color: $ColorScheme4;
+    font-size: 20px;
+}
+
+.skills-body .experience-list .exp-item .exp-item-desc {
+    color: $ColorScheme3;
+    font-size: 14px;
 }
 
 .skills-body .skills-list .skill-item{
     @include flexCenter;
     flex-direction: column;
+    justify-content: flex-end;
 
     height: 150px;
     width: 150px;
     margin: 5px;
+    justify-content: bottom;
 }
 
 .skills-body .skills-list .skill-item img{
     width: 100px;
+    margin: auto;
 }
 
 .skills-body .skills-list .skill-item label{
     font-family: "MyFont2";
     color: $ColorScheme5;
-    margin-top: 10px;
-}
-
-.app-content div {
-    border: 1px dotted red;
 }

@@ -12,14 +12,11 @@ import Skills from './pages/Skills.jsx';
 import Contact from './pages/Contact.jsx';
 import Projects from './pages/Projects.jsx';
 
-
-
 function App() {
   return (
     <div className='main-app'>
       <Router>
         <Navbar />
-        <Background />
         <Switch>
           <Route path='/' exact component={Home}/>
           <Route path='/skills' component={Skills} />
@@ -28,6 +25,7 @@ function App() {
           <Route path='/*' component={Home}/>
         </Switch>
         <Footer/>
+        <Background />
       </Router>
     </div>
   );

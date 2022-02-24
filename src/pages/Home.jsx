@@ -31,14 +31,14 @@ function Home () {
           <p className='dev-msg dev-msg-hi'>
             Hi there, Welcome!
           </p>
-          <p className='dev-msg'>I'm a web developer and in the same time a game developer. You can check some of my works on the{' '}
+          <p className='dev-msg'>I'm a web developer and a game developer. You can check some of my works on the{' '}
             <Link to='/projects'>
               Projects
-            </Link> page or you can just contact me if you want a word with me. Anyways, just take your time to look around my page.
+            </Link> page or you can just contact me for any inquiries. Anyways, just take your time to look around my page.
           </p>
           <div className='buttons'>
-            <Button onClick={goToContact}>Contact Me</Button>
-            <Button>Download CV</Button>
+            <Button className='btn' onClick={goToContact}>Contact Me</Button>
+            <Button className='btn' type='download' href='https://bit.ly/paulcagape-cv'>Download CV</Button>
           </div>
           <p className='dev-msg'>
             Thank you for visiting!

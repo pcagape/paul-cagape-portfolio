@@ -11,7 +11,18 @@
   min-width: 150px;
 }
 
-.btn-primary:hover {
+.btn-primary a {
+  color: $ColorScheme5;
+  font-size: 20px;
+  font-family: MyFont2;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary:hover,
+.btn-primary a:hover {
   color: $ColorScheme1;
   border: none;
   border-radius: 15px;

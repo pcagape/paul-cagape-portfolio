@@ -1,9 +1,12 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { Button } from '../components/Button';
-
+import React, { useState, useEffect } from 'react';
 
 function Skills () {
   const [show, setShow] = useState(false);
+  const experienceList = [
+    {name: 'Software Engineer', desc: 'Web, React', year: 3},
+    {name: 'Game Developer', desc: 'ImpactJS', year: 4.5},
+    {name: 'Javascript Developer', desc: '', year: 9},
+  ];
   const skillsList = [
     {name: 'HTML5', imgUrl: './images/icon-html5.png'},
     {name: 'Javascript', imgUrl: './images/icon-js.png'},
@@ -16,11 +19,12 @@ function Skills () {
     {name: 'Java', imgUrl: './images/icon-java.png'},
     {name: 'Redux', imgUrl: './images/icon-redux.png'},
     {name: 'RESTful', imgUrl: './images/icon-restful.png'},
+    {name: 'MongoDB', imgUrl: './images/icon-mongodb.png'},
+    {name: 'MySQL', imgUrl: './images/icon-mysql.png'},
     {name: 'C#', imgUrl: './images/icon-c-sharp.png'},
     {name: 'Photoshop', imgUrl: './images/icon-photoshop.png'},
     {name: 'Adobe Animate', imgUrl: './images/icon-adobe-animate.png'},
-    {name: 'Vegas Pro', imgUrl: './images/icon-vegaspro.png'},
-    
+    {name: 'Vegas Pro', imgUrl: './images/icon-vegaspro.png'},  
   ];
 
 
@@ -34,21 +38,29 @@ function Skills () {
           <div className='skills-title'>
             <h1>Skills & Experience</h1>
           </div>
+          <div className='experience-list'>
+          {experienceList.map((exp, index)=>{
+              return (
+                <div key={exp.name} className='exp-item'>
+                  <label className='exp-item-name'>{exp.name}</label>
+                  <label className='exp-item-desc'>{exp.desc} {'(' + (typeof exp.year == 'string' ? (exp.year+')') : ( exp.year > 1 ? exp.year+' years)' : exp.year+' year)') )}</label>
+                </div>
+              )
+            })}
+          </div>
           <div className='skills-list'>
             {skillsList.map((skill, index)=>{
               return (
                 <div key={skill.name} className='skill-item'>
-                  <img className='dev-pic' src={skill.imgUrl} alt=''/>
+                  <img src={skill.imgUrl} alt=''/>
                   <label>{skill.name}</label>
                 </div>
               )
             })}
           </div>
-
         </div>
       </div>
     </div>
-    
   );
 }
 

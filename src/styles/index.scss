@@ -17,42 +17,52 @@ $ColorScheme5: #F2F2F2;
   transition: all 400ms ease-in-out;
 }
 
-@import './styles/Navbar.scss';
-@import './styles/Footer.scss';
-@import './styles/Button.scss';
-@import './styles/Home.scss';
-@import './styles/Skills.scss';
-@import './styles/Contact.scss';
+@import './Navbar.scss';
+@import './Footer.scss';
+@import './Button.scss';
+@import './Modalv2.scss';
+@import './Home.scss';
+@import './Skills.scss';
+@import './Projects.scss';
+@import './Contact.scss';
 
 html, body {
-  font-family: "MyFont2";
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  margin: 0;
-  position: absolute;
-  background-color: $ColorScheme1;
-  z-index: -9999;
-}
-
-#root, .main-app {
-  width: 100%;
   min-height: 100vh;
   width: 100vw;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  z-index: -9999;
+  font-family: "MyFont2";
 }
 
-.main-app {
-  height: 100vh;
-  width: 100vw;
+body {
+  background-color: $ColorScheme1;
+}
+
+#root, #root .main-app {
+  width: 100%;
+}
+
+#root .main-app {
   display: flex;
   flex-direction: column;
 }
 
-.main-app > .app-window {
-  height: auto;
+#root .main-app .app-window {
   min-height: 100vh;
   width: 100vw;
+}
+
+.main-app .background-canvas,
+.main-app .background-canvas canvas {
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: -1000;
 }
 
 .main-app > .app-window .app-content{
@@ -62,17 +72,6 @@ html, body {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display";
   letter-spacing: 5px;
-}
-
-.main-app .background-canvas,
-.main-app .background-canvas canvas {
-  width: 100%;
-  min-height: 100vh;
-  position: fixed;
-}
-
-.main-app .background-canvas canvas {
-  height: 100%;
 }
 
 .main-app > video {
@@ -88,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100vw;
   position: absolute;
   text-align: center;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease;  
 }
 
 .main-app .app-content.window-hide {
@@ -105,5 +104,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .main-app .app-window .app-content > :first-child {
-  margin-top: 85px;
+  padding-top: 100px;
+}
+
+.main-app .app-window .app-content > :last-child {
+  padding-bottom: 50px;
 }

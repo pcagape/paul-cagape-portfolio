@@ -15,9 +15,6 @@
 .dev-bio .dev-lower {
     padding-bottom: 25px;
     height: auto;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
     align-items: center;
     padding-left: 20vw;
     padding-right: 20vw;
@@ -40,7 +37,6 @@
 }
 
 .dev-bio .dev-upper .dev-pic {
-    height: inherit;
     border-radius: 50%;
     height: 250px;
 }
@@ -70,7 +66,7 @@
     text-align: left;
 }
 
-.dev-lower .buttons button {
+.dev-lower .buttons .btn {
     margin: 5px;
 }
 
