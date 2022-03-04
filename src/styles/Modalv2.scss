@@ -1,138 +1,20 @@
 .modal {
-    height: 150px;
-    width: 200px;
-    position: absolute;
+    // position: absolute;
+    
+    height: 250px;
+    width: 400px;
+
+    
     background-color: $ColorScheme2;
     border: 0.5px solid $ColorScheme3;
     border-radius: 10px;
-
-    top: auto;
-    left: auto;
-    right: auto;
-    bottom: auto;
-
-    // @include flexCenter;
+    
     flex-direction: column;
-    // transform: translate(0px);
-    // transition: left 1s, width 1s;
 
     z-index: 500;
 
-    // transition: all 0.5s ease-in-out;
 }
 
-// .modal:not(.shown)::before {
-//     content:'';
-//     display: block;
-// }
-
-.modal.shown {
-    // animation: push ease 5s forwards;
-    // animation-delay: 0.1s;
-    // height:80vh;
-    // width:80vw;
-    // // position: absolute;
-    // // height: 500px;
-    // // width: 75%;
-    // // margin-top: auto; 
-    // margin-left: auto; 
-    // margin-right: auto; 
-    // left: 0;
-    // right: 0;
-    // top: auto;
-    // bottom: auto;
-    // // background-color: $ColorScheme4;
-    // // // border-radius: 10px;
-
-    z-index: 1000;
-
-    width: 80vw;
-    height: auto;
-    // background: red;
-    // position: absolute;
-    top: 100px;
-    left: 50%;
-    right: 50%;
-    
-    // margin-left: 20%; 
-    // margin-right: 20%; 
-    transform: translateX(-50%);
-    // // transition: left 1s, width 1s;
-    // background: red;
-
-    // transition:left 1s linear;
-    // transition: all 0.5s ease-in-out;
-}
-
-// .modal.shown::before {
-//     content: '';
-//     background-color: black;
-//     position: absolute;
-//     top:0;
-//     left:0;
-//     right:0;
-//     bottom:0;
-    
-//     height: 100vh;
-//     width: 100vw;
-
-//     z-index: 999;
-// }
-
-.modal .modal-header,
-.modal.shown .modal-header {
-    @include flexCenter;
-    height: 27px;
-    border-bottom: 0.5px solid $ColorScheme3;
-}
-
-.modal .modal-header label {
-    color: $ColorScheme5;
-}
-
-.modal-body {
-    // @include flexCenter;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    width: 100%;
-}
-
-:not(.shown) .modal-body {
-    overflow: hidden;
-}
-
-.shown .modal-body {
-    overflow: visible;
-    margin-bottom: 50px;
-}
-
-.modal .modal-header .modal-close-btn {
+.modal.show {
     position: absolute;
-    right: 0px;
-    margin-right: 5px;
-    color: $ColorScheme5;
-    background: transparent;
-    background-color: transparent;
-    border: 0px;
-}
-
-.modal .modal-header .modal-close-btn:hover {
-    @include selected-item;
-    border-radius: 10px;
-}
-
-.modal:not(.shown) .modal-header .modal-close-btn {
-    display: none;
-}
-
-.modal:not(.shown) .modal-body {
-    height: 123px;
-}
-
-.modal.shown .modal-body {
-    height: auto;
-    justify-content: center;
 }

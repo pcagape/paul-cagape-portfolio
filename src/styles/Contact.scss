@@ -93,4 +93,8 @@
     .contact-body {
         flex-direction: column-reverse;
     }
+
+    .contact-body .contact-form {
+        border-right: 0px dashed transparent;
+    }
 }

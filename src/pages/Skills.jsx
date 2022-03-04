@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 function Skills () {
   const [show, setShow] = useState(false);
   const experienceList = [
-    {name: 'Software Engineer', desc: 'Web, React', year: 3},
-    {name: 'Game Developer', desc: 'ImpactJS', year: 4.5},
-    {name: 'Javascript Developer', desc: '', year: 9},
+    {name: 'Web Software Engineer', desc: 'Reactjs/Nodejs', year: 3},
+    {name: 'Game Developer', desc: 'ImpactJS/Nodejs', year: '4+ years'},
+    {name: 'Javascript Developer', desc: '', year: '8+ years'},
   ];
   const skillsList = [
     {name: 'HTML5', imgUrl: './images/icon-html5.png'},
@@ -21,10 +21,6 @@ function Skills () {
     {name: 'RESTful', imgUrl: './images/icon-restful.png'},
     {name: 'MongoDB', imgUrl: './images/icon-mongodb.png'},
     {name: 'MySQL', imgUrl: './images/icon-mysql.png'},
-    {name: 'C#', imgUrl: './images/icon-c-sharp.png'},
-    {name: 'Photoshop', imgUrl: './images/icon-photoshop.png'},
-    {name: 'Adobe Animate', imgUrl: './images/icon-adobe-animate.png'},
-    {name: 'Vegas Pro', imgUrl: './images/icon-vegaspro.png'},  
   ];
 
 
