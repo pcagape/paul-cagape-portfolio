@@ -38,18 +38,20 @@ export default function Projects() {
             <h1>Recent Projects</h1>
           </div>
           <div className='projects-list'>
-            {projectList.map((project, index) => {
-              return (
-                <div key={project.name} className='projects-item'>
-                  <Modalv2>
-                  </Modalv2>
-                </div>
-              )
-            })}
-            
+            {projectList.map((item) => <ProjectItem key={item.name} item={item}/>)}
           </div>
         </div>
       </div>
+    </div>
+  )
+}
+
+function ProjectItem({ item: { name, desc } }) {
+  return (
+    <div key={name} className='projects-item'>
+      <Modalv2>
+          <h1>{desc}</h1>
+      </Modalv2>
     </div>
   )
 }

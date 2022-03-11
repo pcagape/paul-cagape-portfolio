@@ -89,12 +89,18 @@
     border-radius: 5px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
     .contact-body {
         flex-direction: column-reverse;
     }
 
+    .contact-body .contact-details {
+        height: auto;
+        padding-bottom: 25px;
+    }
+
     .contact-body .contact-form {
+        border-top: 2px dashed $ColorScheme4;
         border-right: 0px dashed transparent;
     }
 }

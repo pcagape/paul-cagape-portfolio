@@ -3,24 +3,25 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
     const [click, setClick] = useState(false);
-    const [button, setButton] = useState(true);
     
     const handleClick = () => setClick (!click);
     const closeMobileMenu = () => setClick (false);
-    
-    const showButton = () => {
-        if (window.innerWidth <= 960) {
-            setButton(false);
-        } else {
-            setButton(true);
-        }
-    };
+
+    const navBarItems = [
+        { title:'Home', toUrl:'/' },
+        { title:'Skills', toUrl:'/skills' },
+        { title:'Projects', toUrl:'/projects' },
+        { title:'Contact', toUrl:'/contact' }
+
+        // <NavbarItem title='Home' toUrl='/' onClick={closeMobileMenu} />,
+        // <NavbarItem title='Skills' toUrl='/skills' onClick={closeMobileMenu} />,
+        // <NavbarItem title='Projects' toUrl='/projects' onClick={closeMobileMenu} />,
+        // <NavbarItem title='Contact' toUrl='/contact' onClick={closeMobileMenu} />
+    ];
 
     useEffect(() => {
-        showButton();
+        // showButton();
     }, []);
-
-    window.addEventListener('resize', showButton);
     
     return (
         <div className="navbar-container">
@@ -31,28 +32,19 @@ function Navbar() {
                 <a href='/' onClick={e => e.preventDefault()} className={(click ? 'fas fa-times' : 'fas fa-bars')}> </a>
             </div>
             <ul className={(click ? 'nav-menu active' : 'nav-menu')}>
-                <li className="nav-item">
-                    <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                        Home
-                    </Link> 
-                </li>
-                <li className="nav-item">
-                    <Link to='/skills' className='nav-links' onClick={closeMobileMenu}>
-                        Skills
-                    </Link> 
-                </li>
-                <li className="nav-item">
-                    <Link to='/projects' className='nav-links' onClick={closeMobileMenu}>
-                        Projects
-                    </Link> 
-                </li>
-                <li className="nav-item">
-                    <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
-                        Contact {button}
-                    </Link> 
-                </li>
+                {navBarItems.map( ({ title, toUrl }) => <NavbarItem key={title} title={title} toUrl={toUrl} onClick={closeMobileMenu} /> )}
             </ul>
         </div>
+    )
+}
+
+function NavbarItem({ title, toUrl, onClick }) {
+    return (
+        <li key={title} className="nav-item">
+            <Link to={toUrl} className='nav-links' onClick={onClick}>
+                {title}
+            </Link> 
+        </li>
     )
 }
 

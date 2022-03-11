@@ -18,11 +18,7 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route path='/' exact component={Home}/>
-          <Route path='/skills' component={Skills} />
-          <Route path='/projects' component={Projects} />
-          <Route path='/contact' component={Contact} />
-          <Route path='/*' component={Home}/>
+          <Route path='/*' exact component={AppBody}/>
         </Switch>
         <Footer/>
         <Background />
@@ -30,5 +26,17 @@ function App() {
     </div>
   );
 }
+
+function AppBody() {
+  return (
+      <div className='app-body'>
+        <Home />
+        <Skills />
+        <Contact />
+        <Projects />
+      </div>
+  )
+}
+
 
 export default App;
