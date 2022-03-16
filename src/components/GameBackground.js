@@ -15,7 +15,7 @@ function GameBackground() {
 
   }, []);
   return (
-    <canvas id="background" className='background-canvas' width="600" height="360">
+    <canvas id="game-canvas" className='background-canvas' width="600" height="360">
     </canvas>
   );
 }

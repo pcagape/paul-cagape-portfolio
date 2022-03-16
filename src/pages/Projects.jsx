@@ -4,8 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function Projects() {
   const projectList = [
-    {name:'This Page', imgUrl: './images/portfolio-s1.png', desc:'This page is purely running on React, I tried not using any popular React framework to take the challenge of producing a website from scratch to refresh my knowledge on React Development and Website design while working with CSS. I tried using just plain CSS but was playing with LESS and SASS then decide to stick with SASS for very useful features that helps me in my design.'},
-    {name:'MarketJS Games', imgUrl: './images/marketjs-s1.png',
+    { name:'This Page', imgUrl: './images/portfolio-s1.png',
+      desc:"This portfolio is purely running on React, I didn't use any popular React framework to take the challenge of producing a website from scratch to refresh my knowledge on React Development and Website Designing using Custom CSS and Bootstrap UI."},
+    
+    { name:'MarketJS Games', imgUrl: './images/marketjs-s1.png',
       desc: "While employed in MarketJS, we're developing Html5-Games running on Javascript, we work solely in Node environmennt to build and compile our games. Below are some of the games I develop and got permission to share from my previous employer.",
       samples:[
       {name:'Hardest Game', url:'https://www.marketjs.com/item/hardest-game-on-earth'},
@@ -18,11 +20,14 @@ export default function Projects() {
       {name:'Word Pop', url:'https://www.marketjs.com/item/omg-word-pop'},
       ]
     },
+    
     { name: 'Micab', imgUrl: './images/micab-web-s1.png',
       desc: "Micab Web - Taxi Reservation System that I single-handly develop the frontend side using Reactjs in Redux Architecture. The web-app main purpose is to able to book taxi from the browser used by a specific Taxi-Company client." },
+    
     { name: 'NextIX/ZOOG', imgUrl: './images/nextix-zoog-s1.png',
       desc: 'Reward Banking System - Started as Web Developer working on this system then became Fullstack Developer to help the development of the backend. The system was originally a third-party system before we migrated it to Java Spring Boot & Spring MVC plus AngularJS then the team decided to use ReactJS as the frontend. This was my first exposure to Angularjs/Reactjs/Git and Node environment development.' },
-    {name:'Torqes Games', imgUrl:'./images/torqes-s0.png', samples: [
+    
+    { name:'Torqes Games', imgUrl:'./images/torqes-s0.png', samples: [
       {name:'Screenshot #1', url:'./images/torqes-s1.png'},
       {name:'Screenshot #2', url:'./images/torqes-s2.png'},
       {name:'Screenshot #3', url:'./images/torqes-s3.png'},
