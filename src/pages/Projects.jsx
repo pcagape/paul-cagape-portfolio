@@ -27,7 +27,8 @@ export default function Projects() {
       {name:'Screenshot #2', url:'./images/torqes-s2.png'},
       {name:'Screenshot #3', url:'./images/torqes-s3.png'},
       {name:'Screenshot #4', url:'./images/torqes-s4.png'},
-      {name:'Screenshot #5', url:'./images/torqes-s5.png'}
+      {name:'Screenshot #5', url:'./images/torqes-s5.png'},
+      {name:'Screenshot #6', url:'./images/torqes-s6.png'}
     ], desc:'Html5 educational app develop from Adobe Animate using ActionScript and a little bit of Javascript codes. This was my introduction to Web development solely developing Interactive and Educational applications intend for learning use.'},
     // { name: 'Micab', imgUrl: '', desc: "." },
   ];
