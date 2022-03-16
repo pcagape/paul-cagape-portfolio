@@ -1,0 +1,12 @@
+footer {
+    background-color: var(--COLOR1TRANS);
+}
+
+footer a {
+    padding: 5px;
+}
+
+footer a:hover {
+    background-color: var(--COLOR2);
+    border-radius: 0.25em;
+}

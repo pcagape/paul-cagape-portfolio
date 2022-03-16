@@ -1,47 +1,47 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { Button } from '../components/Button';
+import React, { useRef, useState } from 'react';
+import '../styles/Contact.css';
 
-
-function Contact () {
-  const [show, setShow] = useState(false);
-  const companyNameMaxLength = 50;
-  const companyEmailMaxLength = 320;
-  const companyMessageMaxLength = 2500;
+function Contact({ showAlert }) {
   const [companyName, setCompanyName] = useState('');
   const [companyEmail, setCompanyEmail] = useState('');
   const [companyMessage, setCompanyMessage] = useState('');
-  const [companyNameValid, setCompanyNameValid] = useState(true);
-  const [companyEmailValid, setCompanyEmailValid] = useState(true);
-  const [companyMessageValid, setCompanyMessageValid] = useState(true);
   const [_isSendingEmail, set_isSendingEmail] = useState(false);
 
+  const messageForm = useRef(null);
   const nameInput = useRef(null);
   const emailInput = useRef(null);
   const messageInput = useRef(null);
 
+  const companyNameMaxLength = 50;
+  const companyEmailMaxLength = 320;
+  const companyMessageMinLength = 10;
+  const companyMessageMaxLength = 2500;
+
+  const _MY_PHONENUMBER = "(+63)976-1930-672";
   const _NEXT_EMAIL_SEND = 120; // Seconds
   const _MY_EMAIL = 'paul.cagape@gmail.com'
   // const _MY_FB = 'https://www.facebook.com/Enjiero/about_work_and_education';
   const _MY_LINKEDIN = 'https://www.linkedin.com/in/paul-angielo-cagape-03a24167';
 
-  useEffect(() => {
-    setShow(true);
-  }, []);
-
   function sendEmail(e) {
     e.preventDefault();
 
+    // Check inputs validity
+    if (!messageForm.current.checkValidity())
+      return messageForm.current.reportValidity();
+
     var lastSend = new Date(window.localStorage.getItem("_LAST_SEND_EMAIL"));
     var now = new Date();
-    var diffSeconds = (now.getTime()/1000) - (lastSend.getTime()/1000);
+    var diffSeconds = (now.getTime() / 1000) - (lastSend.getTime() / 1000);
 
-    if(!validateAllInput()) return;
+    if (!(diffSeconds > _NEXT_EMAIL_SEND))
+      return showAlert('You have just recently sent a message, please try again after a minute.','error', 3000);
 
-    if(!(diffSeconds > _NEXT_EMAIL_SEND)) return alert('You have just recently sent a message, please try again after a minute.');
+    // Send alert if just recently send an email to prevent spam
+    if (_isSendingEmail) return showAlert('Wait for awhile...');
 
-    if(_isSendingEmail) return alert('Wait for awhile...');
-    console.log("Sending email...");
-
+    // send email
+    console.log("Sending email...")
     set_isSendingEmail(true);
     global.Email.send({
       Host: "smtp.mailtrap.io",
@@ -52,124 +52,97 @@ function Contact () {
       Subject: `"${companyName}" tried to contact you!`,
       Body: companyMessage,
     })
-    .then(function (message) {
-      window.localStorage.setItem("_LAST_SEND_EMAIL", new Date());
-      set_isSendingEmail(false);
-      
-      if(message === 'OK') {
-        alert('Email sent successfully!.');
-        console.log(message, "Email sent successfully!");
-      } else {
-        alert('Something went wrong! Please try again.');
-        console.error(message);
-      }
-    });
+      .then(function (message) {
+        window.localStorage.setItem("_LAST_SEND_EMAIL", new Date());
+        set_isSendingEmail(false);
+
+        if (message === 'OK') {
+          showAlert('Email sent successfully!.');
+          console.log(message, "Email sent successfully!");
+        } else {
+          showAlert('Something went wrong! Please try again.', 'error');
+          console.error(message);
+        }
+      });
   }
 
-  function validateAllInput() {
-    // name
-    var nameValid = checkNameValid(companyName);
-    // email
-    var emailValid = checkEmailValid(companyEmail);
-    // email
-    var msgValid = checkMessageValid(companyMessage);
 
-    if(!nameValid || !emailValid || !msgValid)
-      return false;
-
-    return true;
-  }
-
-  function checkNameValid(name) {
-    name = name.trim();
-    nameInput.current.value = name;
-
-    setCompanyName(currCompanyName => currCompanyName = name);
-    var isValid = true;
-    if(name.trim().length < 1)
-        isValid = false;
-
-    // !/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g.test(name)
-
-    if(!isValid) setCompanyNameValid(false);
-    else setCompanyNameValid(true);
-
-    return isValid;
-  }
-
-  function checkEmailValid(email) {
-    email = email.trim();
-    emailInput.current.value = email;
-
-    setCompanyEmail(currCompanyEmail => currCompanyEmail = email);
-
-    var isValid = true;
-    if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-      isValid = false;
-    }
-
-    if(!isValid) setCompanyEmailValid(false);
-    else setCompanyEmailValid(true);
-
-    return isValid;
-  }
-
-  function checkMessageValid(msg) {
-    msg = msg.trim();
-    messageInput.current.value = msg;
-
-    setCompanyMessage(currCompanyMessage => currCompanyMessage = msg);
-    var isValid = true;
-    if(msg.trim().length < 10)
-        isValid = false;
-
-    if(!isValid) setCompanyMessageValid(false);
-    else setCompanyMessageValid(true);
-
-    return isValid;
-  }
-  
   return (
-    <div className='app-window'>
-      <div className={'app-content dev-bio' + (show ?  ' window-show' : ' window-hide')}>
-        <div className='contact-body'>
-          <form className='contact-form' onSubmit={(e) => e.preventDefault()} method="POST" name="EmailForm">
-            <label>Name {companyNameValid ? '' : <i className="fas fa-exclamation-circle"> {companyName.length < 1 ? 'Please fill name!' : 'Invalid name!'}</i>}</label>
-            <input type="text" id="fname" name="firstname" placeholder="Your Name/Company Name" maxLength={companyNameMaxLength} ref={nameInput} onBlur={e => checkNameValid(e.target.value.trim())}/>
-            <label>Email Address {companyEmailValid ? '' : <i className="fas fa-exclamation-circle"> Invalid Address!</i>}</label>
-            <input type="text" id="email" name="emailaddress" placeholder="Email Address" maxLength={companyEmailMaxLength} ref={emailInput} onBlur={e => checkEmailValid(e.target.value.trim())}/>
-            <label>Message {companyMessageValid ? '' : <i className="fas fa-exclamation-circle"> Too short!</i>}</label>
-            <textarea placeholder="Message..." maxLength={companyMessageMaxLength} ref={messageInput} onBlur={e => checkMessageValid(e.target.value.trim())}></textarea>
-            <Button className="contact-form-submit" onClick={sendEmail} >Submit</Button>
-          </form>
-          <div className="contact-details">
-            <label><i className='fas fa-map-marker-alt' /> General Santos City, 9500 Phillippines</label>
-            <label><i className='fas fa-phone' /> (+63)9254546371</label>
-            <label>
-              <a className='social-icon-link facebook'
-              href={'mailto:' + _MY_EMAIL}
-              title='My Email Address'><i className='far fa-envelope' /> {_MY_EMAIL}</a>
-              
+    <div className="main-content mx-2 py-4 text-center">
 
-            </label>
-            {/* <label><a
-              className='social-icon-link facebook'
-              href={_MY_FB}
-              target='_blank'
-              rel="noopener noreferrer"
-              title='Facebook'><i className='fab fa-facebook'/> Facebook</a></label> */}
-            <label><a
-              className='social-icon-link facebook'
-              href={_MY_LINKEDIN}
-              target='_blank'
-              rel="noopener noreferrer"
-              title='LinkedIn'><i className='fab fa-linkedin'/> LinkedIn</a></label>
+      <div className="row align-items-md-stretch mx-2">
+
+        <div className="col-md-6 mt-2">
+          <div className="contact-form h-100 p-5 text-white bg-dark rounded-3">
+
+            <form ref={messageForm} className="needs-validation text-start">
+              <div className="row g-3">
+
+                <div className="col-12">
+                  <label className="form-label">Name</label>
+                  <div className="input-group has-validation">
+                    <input type="text" className="form-control" name="firstname" placeholder="Your Name/Company Name" maxLength={companyNameMaxLength} ref={nameInput} onChange={e=>setCompanyName(e.target.value.trim())} required />
+                    <div className="invalid-feedback">
+                      Your username is required.
+                    </div>
+                  </div>
+                </div>
+                <div className="col-12">
+                  <label className="form-label">Email Address</label>
+                  <input type="email" className="form-control" name="emailaddress" placeholder="Email Address" maxLength={companyEmailMaxLength} ref={emailInput} onChange={e=>setCompanyEmail(e.target.value.trim())} required />
+                  <div className="invalid-feedback">
+                    Please enter a valid email address for shipping updates.
+                  </div>
+                </div>
+                <div className="col-12">
+                  <label className="form-label">Message</label>
+                  <textarea className="form-control" placeholder="Message . . ." minLength={companyMessageMinLength} maxLength={companyMessageMaxLength} ref={messageInput} onChange={e=>setCompanyMessage(e.target.value.trim())} style={{height:'120px'}} required />
+                  <div className="invalid-feedback">
+                    Please enter your shipping address.
+                  </div>
+                </div>
+
+                <hr className="my-4" style={{'backgroundColor':'var(--COLOR5)'}}/>
+
+                <button className="w-100 btn btn-primary btn-lg" onClick={sendEmail}>Submit</button>
+              </div>
+            </form>
+
           </div>
+        </div>
 
+        <div className="col-md-6 mt-2">
+          <div className="contact-form contacts d-flex flex-column h-100 p-5 bg-light rounded-3 text-center text-middle justify-content-center">
+            <label>
+              <i className='fas fa-map-marker-alt me-2' />
+              General Santos City, 9500 Phillippines
+            </label>
+            <label>
+              <i className='fas fa-phone me-2' />
+              {_MY_PHONENUMBER}
+            </label>
+            <label>
+              <a className='social-icon-link'
+                href={'mailto:' + _MY_EMAIL}
+                title='My Email Address'>
+                <i className='far fa-envelope me-2' />
+                {_MY_EMAIL}
+              </a>
+            </label>
+            <label>
+              <a className='social-icon-link'
+                href={_MY_LINKEDIN}
+                target='_blank'
+                rel="noopener noreferrer"
+                title='LinkedIn'><i className='fab fa-linkedin me-2' />
+                LinkedIn
+              </a>
+            </label>
+          </div>
         </div>
       </div>
+
     </div>
-    
   );
 }
 

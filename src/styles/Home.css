@@ -1,0 +1,17 @@
+main {
+    /* background-color: var(--COLOR1); */
+}
+
+.dev-pic {
+    border-radius: 50%;
+}
+
+.dev-prof {
+    flex-direction: row;
+}
+
+@media screen and (max-width: 766px) {
+    .dev-prof {
+        flex-direction: column-reverse;
+    }
+}

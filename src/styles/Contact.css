@@ -1,0 +1,18 @@
+.contact-form {
+    background-color: var(--COLOR1TRANS) !important;
+}
+
+.contact-form.contacts label,
+.contact-form.contacts label a{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: var(--COLOR5);
+    text-decoration: none;
+}
+
+.contact-form.contacts label a:hover{
+    background-color: var(--COLOR1TRANS) !important;
+    color: var(--COLOR2) !important;
+    border-radius: 1em;
+    padding: 5px;
+}

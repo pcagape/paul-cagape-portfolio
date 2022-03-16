@@ -1,0 +1,7 @@
+.project-card {
+    background-color: var(--COLOR1TRANS);
+}
+
+.project-card a {
+    margin: 0.25em;
+}
