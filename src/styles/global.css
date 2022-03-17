@@ -13,39 +13,27 @@
 }
 
 html, body {
+  font-family: 'MyFont1';
   overflow-x: hidden;
   color: var(--COLOR5);
-}
-
-body::-webkit-scrollbar {
-  width: 0.5rem;
-}
-
-body::-webkit-scrollbar-track {
-  background: black;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: black;
-  border: 1px solid white;
-}
-
-body.modal-open {
-  height: 100vh;
-  overflow-y: hidden;
 }
 
 main {
   padding-top: 5rem;
 }
 
-main #background-canvas,
-main #background-canvas canvas {
-  width: 100%;
-  min-height: 100vh;
-  position: absolute;
-  top: 0;
-  z-index: -1000;
+/* SCROLL-BAR */
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: red;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: black;
+  border: 1px solid white;
 }
 
 /* TRANSITION */

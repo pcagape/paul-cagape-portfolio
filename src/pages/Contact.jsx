@@ -68,7 +68,7 @@ function Contact({ showAlert }) {
 
 
   return (
-    <div className="main-content mx-2 py-4 text-center">
+    <div className="main-content mx-2 py-4 pb-5 mb-3 text-center">
 
       <div className="row align-items-md-stretch mx-2">
 

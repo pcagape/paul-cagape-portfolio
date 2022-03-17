@@ -2,6 +2,16 @@ main {
     /* background-color: var(--COLOR1); */
 }
 
+main .home-buttons a {
+    background-color: var(--COLOR2);
+    color: var(--COLOR5);
+}
+
+main .home-buttons a:hover {
+    background-color: var(--COLOR4);
+    color: var(--COLOR1);
+}
+
 .dev-pic {
     border-radius: 50%;
 }

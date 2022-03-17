@@ -8,7 +8,7 @@ export default function Projects() {
       desc:"This portfolio is purely running on React, I didn't use any popular React framework to take the challenge of producing a website from scratch to refresh my knowledge on React Development and Website Designing using Custom CSS and Bootstrap UI."},
     
     { name:'MarketJS Games', imgUrl: './images/marketjs-s1.png',
-      desc: "While employed in MarketJS, we're developing Html5-Games running on Javascript, we work solely in Node environmennt to build and compile our games. Below are some of the games I develop and got permission to share from my previous employer.",
+      desc: "While employed in MarketJS, we're developing Html5-Games running on Javascript, we work solely in Node environment to build and compile our games. Below are some of the games I develop and got permission to share from my previous employer.",
       samples:[
       {name:'Hardest Game', url:'https://www.marketjs.com/item/hardest-game-on-earth'},
       {name:'Soccer Royale', url:'https://www.marketjs.com/item/bobblehead-soccer-royale'},

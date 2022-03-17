@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as generateRandomId } from 'uuid';
 
+// CSS
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -31,9 +32,9 @@ function App() {
   ]
 
   // timer
-  useEffect(()=>{
-    setTimeout(()=>{
-      setTimer(state => (state+1));
+  useEffect(() => {
+    setTimeout(() => {
+      setTimer(state => (state + 1));
     }, 1000);
 
     // remove expire time
@@ -55,14 +56,14 @@ function App() {
     }
 
     let identicalItem = alertList.find(item => item.message === message);
-    if(identicalItem) return;
+    if (identicalItem) return;
 
     // new alert
     let newAlert = {
-      id: uuidv4(),
+      id: generateRandomId(),
       message,
       type,
-      expireAt: timer + (duration/1000)
+      expireAt: timer + (duration / 1000)
     }
 
     // Add new alert and Transition IN
@@ -74,14 +75,14 @@ function App() {
 
     // Find expired
     let deleteAlert = null;
-    alertList.map((item)=>{
-      if(item.expireAt <= timer && !deleteAlert)
-        deleteAlert = item;
-        
-        return item;
-    });
+    for (let i = 0; i < alertList.length; i++) {
+      if (alertList[i].expireAt <= timer && !deleteAlert) {
+        deleteAlert = alertList[i];
+        break;
+      }
+    }
 
-    if(!deleteAlert) return;
+    if (!deleteAlert) return;
 
     // Delete expired one at a time
     let newAlerts = alertList.slice();
@@ -94,7 +95,8 @@ function App() {
 
       <main className='position-absolute min-vh-100 min-vw-100'>
         <Navbar routes={routes} triggerTransition={setInProp} />
-        <Alert alerts={alertList} />
+        <Alert list={alertList} />
+
         <Switch>
           {routes.map(({ path, Component }) => (
             <Route key={path} exact path={path}>
@@ -105,15 +107,15 @@ function App() {
                   timeout={200}
                   classNames="main-content"
                   unmountOnExit
-                  unmountOnStart
-                >
-                  <Component showAlert={showAlert} />
+                  unmountOnStart>
+                  <Component showAlert={showAlert} triggerTransition={setInProp} />
                 </CSSTransition>
               )}
 
             </Route>
           ))}
         </Switch>
+
         <Footer />
         <GameBackground />
       </main>
