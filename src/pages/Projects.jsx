@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/Projects.css';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function Projects() {
+export default function Projects({ isShowContent }) {
   const projectList = [
     { name:'This Page', imgUrl: './images/portfolio-s1.png',
       desc:"This portfolio is purely running on React, I didn't use any popular React framework to take the challenge of producing a website from scratch to refresh my knowledge on React Development and Website Designing using Custom CSS and Bootstrap UI."},
@@ -39,7 +39,7 @@ export default function Projects() {
   ];
 
   return (
-    <div className="main-content pt-4 mb-5 text-center">
+    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '}pt-4 mb-5 text-center`}>
 
       <div className="row py-lg-5">
         <div className="row col-md-12 mx-auto">

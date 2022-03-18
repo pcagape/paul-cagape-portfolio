@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { v4 as generateRandomId } from 'uuid';
 
 // CSS
@@ -21,7 +20,7 @@ import Projects from './pages/Projects.jsx';
 
 function App() {
   const [timer, setTimer] = useState(0);
-  const [inProp, setInProp] = useState(false);
+  const [isShowContent, setIsShowContent] = useState(false);
   const [alertList, setAlertList] = useState([]);
 
   const routes = [
@@ -43,7 +42,7 @@ function App() {
 
   // Show on first load
   useEffect(() => {
-    setInProp(true);
+    setIsShowContent(true);
   }, []);
 
   function showAlert(message = '', type = 'success', duration = 5000) {
@@ -94,23 +93,14 @@ function App() {
     <Router>
 
       <main className='position-absolute min-vh-100 min-vw-100'>
-        <Navbar routes={routes} triggerTransition={setInProp} />
+        <Navbar routes={routes} triggerTransition={setIsShowContent} />
         <Alert list={alertList} />
 
         <Switch>
           {routes.map(({ path, Component }) => (
             <Route key={path} exact path={path}>
 
-              {(props) => (
-                <CSSTransition
-                  in={inProp}
-                  timeout={200}
-                  classNames="main-content"
-                  unmountOnExit
-                  unmountOnStart>
-                  <Component showAlert={showAlert} triggerTransition={setInProp} />
-                </CSSTransition>
-              )}
+              <Component isShowContent={isShowContent} showAlert={showAlert} triggerTransition={setIsShowContent} />
 
             </Route>
           ))}

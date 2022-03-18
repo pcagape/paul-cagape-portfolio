@@ -28,35 +28,42 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: red;
+  background: #080f16;
+  border: 1px solid var(--COLOR1TRANS);
 }
 
 body::-webkit-scrollbar-thumb {
-  background: black;
-  border: 1px solid white;
+  background: #080f16;
+  border: 1px solid var(--COLOR5);
+  border-radius: 0.25em;
 }
 
 /* TRANSITION */
-.main-content-enter {
-  opacity: 0;
-  transform: scale(1.1);
+.main-content.main-content-enter {
+  animation: right-to-left-fadein 200ms ease-in-out forwards;
 }
-
-.main-content-enter-active {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 300ms, transform 300ms;
+@keyframes right-to-left-fadein {
+  0% {
+      opacity: 0;
+      transform: translateX(20%);
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0%);
+  }
 }
-
-.main-content-exit {
-  opacity: 1;
-  transform: scale(1);
+.main-content.main-content-exit {
+  animation: right-to-left-fadeout 200ms ease-in-out forwards;
 }
-
-.main-content-exit-active {
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 300ms, transform 300ms;
+@keyframes right-to-left-fadeout {
+  0% {
+      opacity: 1;
+      transform: translateX(0%);
+  }
+  100% {
+      opacity: 0;
+      transform: translateX(-20%);
+  }
 }
 
 /* BUTTON COLORS */
