@@ -35,40 +35,9 @@ function Contact({ showAlert, isShowContent }) {
     if (!messageForm.current.checkValidity())
       return messageForm.current.reportValidity();
 
-    var lastSend = new Date(window.localStorage.getItem("_LAST_SEND_EMAIL"));
-    var now = new Date();
-    var diffSeconds = (now.getTime() / 1000) - (lastSend.getTime() / 1000);
-
-    if (!(diffSeconds > _NEXT_EMAIL_SEND))
-      return showAlert('You have just recently sent a message, please try again after a minute.','error', 3000);
-
-    // Send alert if just recently send an email to prevent spam
-    if (_isSendingEmail) return showAlert('Wait for awhile...');
-
-    // send email
-    console.log("Sending email...")
-    set_isSendingEmail(true);
-    global.Email.send({
-      Host: "smtp.mailtrap.io",
-      Username: "f62cfe4c0c1071",
-      Password: "db2f311af47fd0",
-      To: _MY_EMAIL,
-      From: companyEmail,
-      Subject: `"${companyName}" tried to contact you!`,
-      Body: companyMessage,
-    })
-      .then(function (message) {
-        window.localStorage.setItem("_LAST_SEND_EMAIL", new Date());
-        set_isSendingEmail(false);
-
-        if (message === 'OK') {
-          showAlert('Email sent successfully!.');
-          console.log(message, "Email sent successfully!");
-        } else {
-          showAlert('Something went wrong! Please try again.', 'error');
-          console.error(message);
-        }
-      });
+    const emailSubject = `${companyName}`;
+    const emailBody = companyMessage.replace(/\n/g, '%0D%0A') + "%0D%0A%0D%0A";
+    window.open(`mailto:${_MY_EMAIL}?subject=${emailSubject}&body=${emailBody}`, '_blank');
   }
 
 
@@ -128,7 +97,7 @@ function Contact({ showAlert, isShowContent }) {
             </label>
             <label>
               <a className='social-icon-link'
-                href={'mailto:' + _MY_EMAIL}
+                href={'mailto:' + _MY_EMAIL + '?subject=test test test&body=hey eyou'}
                 title='My Email Address'>
                 <i className='far fa-envelope me-2' />
                 {_MY_EMAIL}

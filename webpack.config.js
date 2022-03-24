@@ -13,9 +13,28 @@ const _CONFIG = {
 module.exports = {
     mode: 'production',
     entry: './src/index.js',
-    stats: {warnings:false},
+    stats: { warnings: false },
     output: {
         path: _CONFIG.dist,
+    },
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    warnings: false,
+                    parse: {},
+                    compress: {},
+                    mangle: true,
+                    output: null,
+                    toplevel: false,
+                    nameCache: null,
+                    ie8: false,
+                    keep_fnames: false,
+                },
+                extractComments: false,
+                cache: true
+            }),
+        ],
     },
     module: {
         rules: [
@@ -44,20 +63,18 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin({
-            // cleanAfterEveryBuildPatterns: [path.resolve(__dirname, 'build/')],
+            cleanOnceBeforeBuildPatterns: _CONFIG.dist
         }),
         new CopyPlugin([
-            // path.resolve(__dirname, "public/*"),
             { from: "public/fonts", to: "fonts" },
             { from: "public/images", to: "images" },
-            // { from: "build/static/js", to: "js" },
             { context: path.resolve(__dirname, 'public/'), from: "*", to: "" },
-            // { from: "public/prod.html", to: "index.html" },
+            { context: path.resolve(__dirname, 'public/'), from: ".htaccess", to: "" },
         ]),
-        new UglifyJsPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'public/index.html'
         }),
+        new UglifyJsPlugin(),
     ],
 }
