@@ -1,17 +1,3 @@
-/* Color Theme Swatches in Hex */
-:root {
-  --COLOR1: #4A96D9; /* #4A96D9; */
-  --COLOR1TRANS: #4a96d93b;
-  --COLOR2: #59a8d9; /* #59A8D9; */
-  --COLOR3: #A9C6D9; /* #A9C6D9; */
-  --COLOR4: #94E1F2; /* #94E1F2; */
-  --COLOR5: #F2F2F2; /* #F2F2F2; */
-}
-
-* {
-  box-sizing: border-box;
-}
-
 html, body {
   font-family: 'MyFont1';
   overflow-x: hidden;
@@ -20,6 +6,11 @@ html, body {
 
 main {
   padding-top: 5rem;
+}
+
+/* REMOVE PRELOAD */
+body .preload {
+  display: none !important;
 }
 
 /* SCROLL-BAR */
@@ -63,6 +54,32 @@ body::-webkit-scrollbar-thumb {
   100% {
       opacity: 0;
       transform: translateX(-20%);
+  }
+}
+main header.header {
+  animation: up-to-down-fadein 200ms ease-in-out forwards;
+}
+main footer {
+  animation: down-to-up-fadein 200ms ease-in-out forwards;
+}
+@keyframes up-to-down-fadein {
+  0% {
+      opacity: 0;
+      transform: translateY(-50%);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0%);
+  }
+}
+@keyframes down-to-up-fadein {
+  0% {
+      opacity: 0;
+      transform: translateY(+50%);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0%);
   }
 }
 

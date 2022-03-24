@@ -26,36 +26,39 @@ function Skills({ isShowContent }) {
   ];
 
   return (
-    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '}pt-4 mb-5 text-center`}>
+    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '}pt-4 mb-5 pb-2 text-center`}>
+
+      <div className="row pt-3">
+        <div className="row col-md-12 mx-auto">
+          <h1 className="fw-bold">Skills & Experience</h1>
+        </div>
+      </div>
 
       <section className="text-center container">
-        <div className="row py-lg-5">
-          <div className="row col-md-12 col-md-8 mx-auto">
-            <h1 className="fw-bold">Skills & Experience</h1>
+        <div className="row col-md-12 col-md-8 mx-auto">
 
-            {experienceList.map((exp, index) => {
-              return (
-                <div key={exp.name} className="col-sm-4 d-flex flex-column my-3 mx-auto">
-                  <h4 className="fw-light m-0">{exp.name}</h4>
-                  <label className='fst-italic'>
-                    {exp.desc} {'(' + (typeof exp.year == 'string' ? (exp.year + ')') : (exp.year > 1 ? exp.year + ' years)' : exp.year + ' year)'))}
-                  </label>
-                </div>
-              )
-            })}
+          {experienceList.map((exp, index) => {
+            return (
+              <div key={exp.name} className="col-sm-4 d-flex flex-column my-3 mx-auto">
+                <h4 className="fw-light m-0">{exp.name}</h4>
+                <label className='fst-italic'>
+                  {exp.desc} {'(' + (typeof exp.year == 'string' ? (exp.year + ')') : (exp.year > 1 ? exp.year + ' years)' : exp.year + ' year)'))}
+                </label>
+              </div>
+            )
+          })}
 
-            <div className="col-lg-12 my-4"></div>
+          <div className="col-lg-12 my-2"></div>
 
-            {skillsList.map((skill, index) => {
-              return (
-                <div key={skill.name} className="skill-item d-flex flex-column text-center text-middle justify-content-center mx-auto m-2 p-2">
-                  <img src={skill.imgUrl} alt='' className="mx-auto" style={{ width: '100px' }} />
-                  <label>{skill.name}</label>
-                </div>
-              )
-            })}
+          {skillsList.map((skill, index) => {
+            return (
+              <div key={skill.name} className="skill-item d-flex flex-column text-center text-middle justify-content-center mx-auto m-2 p-2">
+                <img src={skill.imgUrl} alt='' className="mx-auto" style={{ width: '100px' }} />
+                <label>{skill.name}</label>
+              </div>
+            )
+          })}
 
-          </div>
         </div>
       </section>
 

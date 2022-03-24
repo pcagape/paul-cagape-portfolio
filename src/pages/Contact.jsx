@@ -1,5 +1,10 @@
 import React, { useRef, useState } from 'react';
+
+// CSS
 import '../styles/Contact.css';
+
+// Component
+import Button from '../components/Button.js';
 
 function Contact({ showAlert, isShowContent }) {
   const [companyName, setCompanyName] = useState('');
@@ -104,7 +109,7 @@ function Contact({ showAlert, isShowContent }) {
 
                 <hr className="my-4" style={{'backgroundColor':'var(--COLOR5)'}}/>
 
-                <button className="w-100 btn btn-primary btn-lg" onClick={sendEmail}>Submit</button>
+                <Button className='w-100' onClick={sendEmail}>Submit</Button>
               </div>
             </form>
 

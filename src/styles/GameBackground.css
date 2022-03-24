@@ -1,4 +1,4 @@
-.background-canvas {
+#game-canvas {
     width: 100%;
     min-height: 100vh;
     position: fixed;

@@ -11,6 +11,7 @@ import GameBackground from './components/GameBackground';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Alert from './components/Alert';
+import Loading from './components/Loading';
 
 // Pages
 import Home from './pages/Home.jsx';
@@ -18,8 +19,12 @@ import Skills from './pages/Skills.jsx';
 import Contact from './pages/Contact.jsx';
 import Projects from './pages/Projects.jsx';
 
+// Assets
+import _ASSETS from './assets';
+
 function App() {
   const [timer, setTimer] = useState(0);
+  const [assetsLoaded, setAssetsLoaded] = useState(false);
   const [isShowContent, setIsShowContent] = useState(false);
   const [alertList, setAlertList] = useState([]);
 
@@ -40,12 +45,24 @@ function App() {
     deleteExpireAlerts();
   }, [timer]);
 
-  // Show on first load
+  // onloaded
   useEffect(() => {
+    // Load all assets
+    Promise.all(_ASSETS.map(image => {
+      return new Promise((resolve, reject) => {
+        const loadImg = new Image()
+        loadImg.src = image
+        // wait 2 seconds to simulate loading time
+        loadImg.onload = (item) => resolve(image.url);
+        loadImg.onerror = err => reject(err);
+      })
+    })).then(() => setAssetsLoaded(true))
+      .catch(err => setAssetsLoaded(true))
+
     setIsShowContent(true);
   }, []);
 
-  function showAlert(message = '', type = 'success', duration = 5000) {
+  const showAlert = function (message = '', type = 'success', duration = 5000) {
     switch (type) {
       case 'danger': case 'error':
         type = 'danger';
@@ -70,7 +87,7 @@ function App() {
     setAlertList(alertList.slice());
   }
 
-  function deleteExpireAlerts() {
+  const deleteExpireAlerts = function () {
 
     // Find expired
     let deleteAlert = null;
@@ -92,23 +109,26 @@ function App() {
   return (
     <Router>
 
-      <main className='position-absolute min-vh-100 min-vw-100'>
-        <Navbar routes={routes} triggerTransition={setIsShowContent} />
-        <Alert list={alertList} />
+      {assetsLoaded ?
+        <main className='position-absolute min-vh-100 min-vw-100'>
+          <Navbar routes={routes} triggerTransition={setIsShowContent} />
+          <Alert list={alertList} />
 
-        <Switch>
-          {routes.map(({ path, Component }) => (
-            <Route key={path} exact path={path}>
+          <Switch>
+            {routes.map(({ path, Component }) => (
+              <Route key={path} exact path={path}>
 
-              <Component isShowContent={isShowContent} showAlert={showAlert} triggerTransition={setIsShowContent} />
+                <Component isShowContent={isShowContent} showAlert={showAlert} triggerTransition={setIsShowContent} />
 
-            </Route>
-          ))}
-        </Switch>
+              </Route>
+            ))}
+          </Switch>
 
-        <Footer />
-        <GameBackground />
-      </main>
+          <Footer />
+          <GameBackground />
+        </main>
+        : <Loading />
+      }
 
     </Router>
   );

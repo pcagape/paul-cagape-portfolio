@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><title>Paul Angielo Cagape - Web Developer / Game Developer</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script src="https://kit.fontawesome.com/1e8c0897f7.js" crossorigin="anonymous"></script><script src="https://code.createjs.com/1.0.0/createjs.min.js"></script><style>:root {
+    --COLOR1: #4A96D9;
+    --COLOR1TRANS: #4a96d93b;
+    --COLOR2: #59a8d9;
+    --COLOR3: #A9C6D9;
+    --COLOR4: #94E1F2;
+    --COLOR5: #F2F2F2;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body, html {
+    background-color: #080f16;
+  }
+
+  .preload {
+    position: absolute;
+    border: 18px solid var(--COLOR4);
+    border-top: 18px solid var(--COLOR1);
+    border-bottom: 18px solid var(--COLOR1);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    left: calc(50vw - 25px);
+    bottom: calc(50vh - 25px);
+    transform: translateX(-100%);
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @font-face {
+    font-family: 'MyFont1';
+    src: url('./fonts/GT-Walsheim-Rg.ttf');
+    src: local('☺'),
+      url('./fonts/GT-Walsheim-Rg.ttf') format('truetype')
+  }</style><body><div id="root"></div><div class="preload" style="font-family:'MyFont1'">.</div><script>!function (e) { function r(r) { for (var n, l, a = r[0], p = r[1], f = r[2], c = 0, s = []; c < a.length; c++)l = a[c], Object.prototype.hasOwnProperty.call(o, l) && o[l] && s.push(o[l][0]), o[l] = 0; for (n in p) Object.prototype.hasOwnProperty.call(p, n) && (e[n] = p[n]); for (i && i(r); s.length;)s.shift()(); return u.push.apply(u, f || []), t() } function t() { for (var e, r = 0; r < u.length; r++) { for (var t = u[r], n = !0, a = 1; a < t.length; a++) { var p = t[a]; 0 !== o[p] && (n = !1) } n && (u.splice(r--, 1), e = l(l.s = t[0])) } return e } var n = {}, o = { 1: 0 }, u = []; function l(r) { if (n[r]) return n[r].exports; var t = n[r] = { i: r, l: !1, exports: {} }; return e[r].call(t.exports, t, t.exports, l), t.l = !0, t.exports } l.m = e, l.c = n, l.d = function (e, r, t) { l.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, l.r = function (e) { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) }, l.t = function (e, r) { if (1 & r && (e = l(e)), 8 & r) return e; if (4 & r && "object" == typeof e && e && e.__esModule) return e; var t = Object.create(null); if (l.r(t), Object.defineProperty(t, "default", { enumerable: !0, value: e }), 2 & r && "string" != typeof e) for (var n in e) l.d(t, n, function (r) { return e[r] }.bind(null, n)); return t }, l.n = function (e) { var r = e && e.__esModule ? function () { return e.default } : function () { return e }; return l.d(r, "a", r), r }, l.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, l.p = "/"; var a = this["webpackJsonppaul-cagape-portfolio"] = this["webpackJsonppaul-cagape-portfolio"] || [], p = a.push.bind(a); a.push = r, a = a.slice(); for (var f = 0; f < a.length; f++)r(a[f]); var i = p; t() }([])</script><script src="main.js"></script></body></html>

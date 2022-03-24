@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-
 // CSS
 import '../styles/Home.css'
+
+// Component
+import Button from '../components/Button.js';
 
 const _DOWNLOAD_CV_URL = 'https://drive.google.com/file/d/1Ggjq9rQj0XNs1C8LEWAUT6Go7ErLv74-/view';
 const _MESSAGE1 = `Hi! I'm a web developer and a game developer. You can check some of my works on the Projects page or you can just contact me for any inquiries. Anyways, just take your time to look around.`
@@ -43,8 +45,8 @@ export default function Home({ isShowContent, triggerTransition }) {
       <div className="col-lg-6 mx-auto">
         <p className="lead mb-4">{_MESSAGE1}</p>
         <div className="home-buttons d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <a href='/' onClick={e => { e.preventDefault(); onClickGoToLink('/contact'); }} className="btn btn-outline-secondary btn-lg px-4 gap-3">Contact Me</a>
-          <a href={_DOWNLOAD_CV_URL} target='_blank' rel="noopener noreferrer" className="btn btn-outline-secondary btn-lg px-4">Download CV</a>
+          <Button onClick={e => onClickGoToLink('/contact')}>Contact Me</Button>
+          <Button href={_DOWNLOAD_CV_URL}>Download CV</Button>
         </div>
         <p className="lead mt-4">{_MESSAGE2}</p>
         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
