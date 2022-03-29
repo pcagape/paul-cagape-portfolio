@@ -1,23 +1,10 @@
 header {
   background-color: var(--COLOR1TRANS);
+  z-index: 1;
 }
 
 .nav-dropdown-btn {
   display: none;
-}
-
-.dropdown-menu {
-  /* animation: right-to-left 2s ease-in forwards infinite alternate; */
-  display: none;
-  /* transform: translate(-65%, -11%); */
-  /* transition: transform 500ms; */
-}
-
-.shown {
-  display: block;
-  animation: right-to-left 0.3s ease-in-out forwards;
-  /* transform: translate(-65%, -11%); */
-  transition: transform 500ms;
 }
 
 /* COLORS */
@@ -28,7 +15,16 @@ header nav a:hover {
 }
 
 header .dropdown-menu {
-  background-color: var(--COLOR1TRANS);
+  display: none;
+  background-color: var(--COLOR6TRANS);
+  opacity: 0.1;
+}
+
+header .dropdown-menu.shown {
+  display: block;
+  animation: right-to-left 0.3s ease-in-out forwards;
+  transition: transform 500ms;
+  transform-style: preserve-3d;
 }
 
 header .dropdown-menu a {

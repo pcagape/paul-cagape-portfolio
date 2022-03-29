@@ -3,7 +3,7 @@ import '../styles/Footer.css';
 
 function Alert({ list }) {
     return (
-        <div className='position-absolute start-0 w-100'>
+        <div className='alerts-list position-absolute start-0 w-100'>
 
             {list.map((item) => {
                 return (

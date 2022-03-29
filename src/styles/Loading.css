@@ -1,0 +1,8 @@
+div.exhaust {
+    animation: animateExhaust 0.2s steps(2) infinite;
+    transform: translate(-55%, -13%);
+}
+
+@keyframes animateExhaust {
+    100% { background-position: -64px 0; }
+}

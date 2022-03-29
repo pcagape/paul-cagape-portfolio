@@ -109,8 +109,8 @@ function App() {
   return (
     <Router>
 
-      {assetsLoaded ?
-        <main className='position-absolute min-vh-100 min-vw-100'>
+      { assetsLoaded ?
+        <main className='min-vh-100 min-vw-100'>
           <Navbar routes={routes} triggerTransition={setIsShowContent} />
           <Alert list={alertList} />
 
@@ -127,7 +127,7 @@ function App() {
           <Footer />
           <GameBackground />
         </main>
-        : <Loading />
+        : <Loading assetsLoaded/>
       }
 
     </Router>

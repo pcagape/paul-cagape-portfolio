@@ -13,6 +13,8 @@
     --COLOR3: #A9C6D9;
     --COLOR4: #94E1F2;
     --COLOR5: #F2F2F2;
+    --COLOR6: #080f16;
+    --COLOR6TRANS: #172f44;
   }
 
   * {
@@ -21,31 +23,31 @@
 
   body,
   html {
-    background-color: #080f16;
+    background-color: var(--COLOR6);
   }
 
   .preload {
+    width: 37px;
+    height: 19px;
+    background: url('./images/game/player.png');
+
+    font-family:'MyFont1';
     position: absolute;
-    border: 18px solid var(--COLOR4);
-    border-top: 18px solid var(--COLOR1);
-    border-bottom: 18px solid var(--COLOR1);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
     left: calc(50vw - 25px);
     bottom: calc(50vh - 25px);
-    transform: translateX(-100%);
+    transform: translateX(0%);
+    color: rgba(255, 255, 255, 0);
+  }
+  #loading-ship-exhaust {
+    height: 32px;
+    width: 32px;
+    background: transparent url('./images/game/exhaust.png') 0 0 no-repeat;
+    animation: animateLoadingExhaust 0.2s steps(2) infinite;
+    transform: translate(-55%, -10%);
   }
 
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    100% {
-      transform: rotate(360deg);
-    }
+  @keyframes animateLoadingExhaust {
+      100% { background-position: -64px 0; }
   }
 
   @font-face {
@@ -59,7 +61,9 @@
 <body>
   <div id="root"></div>
 
-  <div class="preload" style="font-family:'MyFont1'">.</div>
+  <div class="preload">
+      <div id="loading-ship-exhaust">.</div>
+  </div>
 </body>
 
 </html>
