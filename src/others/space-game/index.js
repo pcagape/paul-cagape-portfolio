@@ -1,58 +1,32 @@
-import SpaceGame from './game.js';
+import Preload from './scenes/Preload';
+import Preload from './scenes/Preload';
 
-const _CANVAS_ID = 'game-canvas';
+class Boot extends Phaser.Scene {
 
-function initializeGameBackground(){
-    
-    // Continue if canvas has loaded
-    const canvas = document.getElementById(_CANVAS_ID);
-    if (!canvas)
-        return setTimeout(initializeGameBackground, 100);
+	preload() {
+		
+		this.load.pack("pack", "assets/preload-asset-pack.json");
 
-    // Frame render
-    window.requestAnimFrame = (function () {
-        return window.requestAnimationFrame ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame ||
-            window.oRequestAnimationFrame ||
-            window.msRequestAnimationFrame ||
-            function (/* function */ callback, /* DOMElement */ element) {
-                window.setTimeout(callback, 1000 / 60);
-            };
-    })();
-
-    // Space Game
-    const game = new SpaceGame(canvas, window.requestAnimFrame);
-
-    // initialize ig
-    window.ig = { game };
-
-    // on window resize
-    window.onresize = onWindowResize.bind(game);
-
-    // Add eventListeners
-    window.addEventListener("keydown", onKeyPressed.bind(game), true)
-    window.addEventListener("keyup", onKeyUp.bind(game), true)
-    
-    // init
-    game.init();
+		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("Preload"));
+	}
 }
 
-function onWindowResize() {
-    this.onWindowResize();
+function initGame() {
+    var game = new Phaser.Game({
+		width: 800,
+		height: 600,
+		type: Phaser.AUTO,
+        backgroundColor: "#242424",
+		scale: {
+			mode: Phaser.Scale.FIT,
+			autoCenter: Phaser.Scale.CENTER_BOTH
+		},
+        parent: '#game-canvas'
+	});
+	
+	game.scene.add("Preload", Preload);
+	game.scene.add("Level", Level);
+	game.scene.add("Boot", Boot, true);
 }
 
-function onKeyPressed(e) {
-    let key = e.key || '';
-    key = key.toLowerCase();
-    const keyCode = e.keyCode || e.which;
-    this.addKeyDown(key, keyCode);
-}
-function onKeyUp(e) {
-    let key = e.key || '';
-    key = key.toLowerCase();
-    const keyCode = e.keyCode || e.which;
-    this.removeKeyUp(key, keyCode);
-}
-
-export default initializeGameBackground;
+export default initGame;

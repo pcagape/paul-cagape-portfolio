@@ -137,7 +137,7 @@ function Game(canvas, requestAnimFrame) {
     }
 
     this.onWindowResize = function() {
-        console.log("has resize!",this.bgContext.canvas.width, this.bgContext.height);
+        // console.log("has resize!",this.bgContext.canvas.width, this.bgContext.height);
     }
 
 

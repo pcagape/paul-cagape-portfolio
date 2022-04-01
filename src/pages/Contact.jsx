@@ -37,7 +37,7 @@ function Contact({ showAlert, isShowContent }) {
 
     const emailSubject = `${companyName}`;
     const emailBody = companyMessage.replace(/\n/g, '%0D%0A') + "%0D%0A%0D%0A";
-    window.open(`mailto:${_MY_EMAIL}?subject=${emailSubject}&body=${emailBody}`, '_blank');
+    window.open(`mailto:${_MY_EMAIL}?subject=${emailSubject}&body=${emailBody}`);
   }
 
 
