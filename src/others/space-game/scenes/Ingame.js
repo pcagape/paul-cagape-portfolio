@@ -1,12 +1,12 @@
-
+import Phaser from 'phaser';
 // You can write more code here
 
 /* START OF COMPILED CODE */
 
-class Level extends Phaser.Scene {
+class Ingame extends Phaser.Scene {
 
 	constructor() {
-		super("Level");
+		super("Ingame");
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -17,7 +17,7 @@ class Level extends Phaser.Scene {
 	editorCreate() {
 
 		// dino
-		const dino = this.add.image(400, 218, "dino");
+		const dino = this.add.image(5, 5, "background");
 
 		// text_1
 		const text_1 = this.add.text(400, 408, "", {});
@@ -26,7 +26,7 @@ class Level extends Phaser.Scene {
 		text_1.setStyle({"fontFamily":"Arial","fontSize":"30px"});
 
 		// dino (components)
-		new PushOnClick(dino);
+		// new PushOnClick(dino);
 
 		this.events.emit("scene-awake");
 	}
@@ -36,7 +36,7 @@ class Level extends Phaser.Scene {
 	// Write more your code here
 
 	create() {
-
+		console.log("at Ingame!");
 		this.editorCreate();
 	}
 
@@ -46,3 +46,4 @@ class Level extends Phaser.Scene {
 /* END OF COMPILED CODE */
 
 // You can write more code here
+export default Ingame;

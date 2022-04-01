@@ -2,8 +2,8 @@
     "section1": {
         "files": [
             {
-                "url": "assets/dino.png",
-                "key": "dino",
+                "url": "images/game/bg.png",
+                "key": "background",
                 "type": "image"
             }
         ]

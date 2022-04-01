@@ -1,32 +1,46 @@
-import Preload from './scenes/Preload';
-import Preload from './scenes/Preload';
+import Phaser from 'phaser';
+
+const _CANVAS_ID = 'game-canvas';
 
 class Boot extends Phaser.Scene {
 
 	preload() {
-		
-		this.load.pack("pack", "assets/preload-asset-pack.json");
-
+		console.log("at BOOT!");
+		this.load.pack("pack", "images/game/asset-pack.json");
+		// this.load.image('background', 'images/game/bg.png');
+		// this.scene.start("Preload");
 		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("Preload"));
 	}
 }
 
+function PreloadFn() {
+	this.load.pack("pack", "images/game/asset-pack.json");
+}
+
+function CreateFn() {
+	this.add.image(300, 150, 'background');
+}
+
 function initGame() {
     var game = new Phaser.Game({
-		width: 800,
-		height: 600,
-		type: Phaser.AUTO,
-        backgroundColor: "#242424",
-		scale: {
-			mode: Phaser.Scale.FIT,
-			autoCenter: Phaser.Scale.CENTER_BOTH
+		type: Phaser.CANVAS,
+		width: 600,
+		height: 360,
+		backgroundColor: "red",
+		// scale: {
+		// 	mode: Phaser.Scale.,
+		// 	// autoCenter: Phaser.Scale.CENTER_BOTH
+		// },
+		scene: {
+			preload: PreloadFn,
+			create: CreateFn
 		},
-        parent: '#game-canvas'
+        canvas: document.getElementById(_CANVAS_ID)
 	});
 	
-	game.scene.add("Preload", Preload);
-	game.scene.add("Level", Level);
-	game.scene.add("Boot", Boot, true);
+	// game.scene.add("Preload", Preload);
+	// game.scene.add("Ingame", Ingame);
+	// game.scene.add("Boot", Boot, true);
 }
 
 export default initGame;

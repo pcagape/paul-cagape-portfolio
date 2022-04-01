@@ -18,7 +18,7 @@
     "createjs": "^1.0.1",
     "grunt-cli": "^1.4.3",
     "html-webpack-plugin": "^4.5.2",
-    "phaser-ce": "^2.19.2",
+    "phaser": "^3.55.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router": "^6.2.1",
