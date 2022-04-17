@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/Projects.css';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function Projects({ isShowContent }) {
+export default function Projects({ children, isShowContent }) {
   const projectList = [
     {
       name: 'This Page', imgUrl: './images/portfolio-s1.png',
@@ -47,7 +47,7 @@ export default function Projects({ isShowContent }) {
   ];
 
   return (
-    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '}pt-4 mb-5 text-center`}>
+    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '} pb-5 text-center`}>
 
       <div className="row pt-3">
         <div className="row col-md-12 mx-auto">
@@ -89,7 +89,6 @@ export default function Projects({ isShowContent }) {
           </div>
         </div>
       </div>
-
     </div>
   )
 }

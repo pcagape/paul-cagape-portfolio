@@ -106,30 +106,27 @@ function App() {
     setAlertList(alertList => (alertList = newAlerts));
   }
 
+  // Loading
+  if (!assetsLoaded)
+    return <Loading assetsLoaded />;
+
   return (
     <Router>
+      <Navbar routes={routes} triggerTransition={setIsShowContent} />
 
-      { assetsLoaded ?
-        <main className='min-vh-100 min-vw-100'>
-          <Navbar routes={routes} triggerTransition={setIsShowContent} />
-          <Alert list={alertList} />
+      <main>
+        <Switch>
+          {routes.map(({ path, Component }) => (
+            <Route key={path} exact path={path}>
+              <Component isShowContent={isShowContent} showAlert={showAlert} triggerTransition={setIsShowContent} />
+            </Route>
+          ))}
+        </Switch>
+      </main>
 
-          <Switch>
-            {routes.map(({ path, Component }) => (
-              <Route key={path} exact path={path}>
-
-                <Component isShowContent={isShowContent} showAlert={showAlert} triggerTransition={setIsShowContent} />
-
-              </Route>
-            ))}
-          </Switch>
-
-          <Footer />
-          <GameBackground />
-        </main>
-        : <Loading assetsLoaded/>
-      }
-
+      <Alert list={alertList} />
+      <Footer />
+      <GameBackground />
     </Router>
   );
 }

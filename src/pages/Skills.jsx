@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Skills.css';
 
-function Skills({ isShowContent }) {
+function Skills({ isShowContent, children }) {
   const experienceList = [
     { name: 'Web Software Engineer', desc: 'Reactjs/Nodejs', year: 3 },
     { name: 'Game Developer', desc: 'ImpactJS/Nodejs', year: '4+ years' },
@@ -26,7 +26,7 @@ function Skills({ isShowContent }) {
   ];
 
   return (
-    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '}pt-4 mb-5 pb-2 text-center`}>
+    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '} text-center`}>
 
       <div className="row pt-3">
         <div className="row col-md-12 mx-auto">
@@ -62,6 +62,7 @@ function Skills({ isShowContent }) {
         </div>
       </section>
 
+      {children}
     </div>
   );
 }

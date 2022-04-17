@@ -5,8 +5,21 @@ html, body {
   background: none;
 }
 
+#root {
+  padding-top: 5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
 main {
   padding-top: 5rem;
+  flex-grow: 1;
+}
+
+header, footer, .alerts-list, #game-canvas {
+  flex-shrink: 0;
 }
 
 /* REMOVE PRELOAD */
@@ -61,7 +74,7 @@ main header.header {
   animation: up-to-down-fadein 200ms ease-in-out forwards;
 }
 main footer {
-  animation: down-to-up-fadein 200ms ease-in-out forwards;
+  animation: down-to-up-fadein-footer 200ms ease-in-out forwards;
 }
 @keyframes up-to-down-fadein {
   0% {

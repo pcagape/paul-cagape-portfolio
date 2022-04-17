@@ -6,12 +6,12 @@ function Footer() {
   const _MY_LINKEDIN = 'https://www.linkedin.com/in/paul-angielo-cagape-03a24167';
 
   return (
-    <footer className="">
-      <div className="col-md-4 d-flex align-items-center">
+    <footer className="d-flex py-2">
+      <div className="justify-self-start">
         <span className="mx-3">&copy; 2022 Paul Angielo Cagape</span>
       </div>
 
-      <ul className="nav col-md-4 justify-content-end list-unstyled d-flex mx-3">
+      <ul className="d-flex justify-self-end align-self-end list-unstyled d-start mx-3">
 
         <li className="ms-3">
           <a href={_MY_LINKEDIN} target='_blank' rel="noopener noreferrer">

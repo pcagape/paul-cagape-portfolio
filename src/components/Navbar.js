@@ -25,7 +25,7 @@ function Navbar({ routes, triggerTransition }) {
     }
 
     return (
-        <header className={`header border-light shadow-lg position-absolute w-100 top-0`} >
+        <header className="header border-light shadow-lg position-absolute w-100 top-0">
             <div className="px-1 py-1 text-white" >
                 <div className="container-fluid" >
                     <div className="row align-items-center justify-content-center" >

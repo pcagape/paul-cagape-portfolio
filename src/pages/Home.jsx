@@ -11,7 +11,7 @@ const _DOWNLOAD_CV_URL = 'https://drive.google.com/file/d/1Ggjq9rQj0XNs1C8LEWAUT
 const _MESSAGE1 = `Hi! I'm a web developer and a game developer. You can check some of my works on the Projects page or you can just contact me for any inquiries. Anyways, just take your time to look around.`
 const _MESSAGE2 = `Thank you for visiting my page!`
 
-export default function Home({ isShowContent, triggerTransition }) {
+export default function Home({ children, isShowContent, triggerTransition }) {
   const { push: goToUrl, location: { pathname: urlPathname } } = useHistory();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function Home({ isShowContent, triggerTransition }) {
   }
 
   return (
-    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '}px-4 py-5 my-5 text-center`}>
+    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '} pb-5 text-center`}>
 
       <div className={`dev-prof col-lg-12 mt-4 mx-auto d-flex text-center text-middle justify-content-center`}>
         <div className='d-flex flex-column text-center text-middle justify-content-center'>
@@ -53,7 +53,6 @@ export default function Home({ isShowContent, triggerTransition }) {
           {/* <button type="button" className="btn btn-outline-secondary btn-lg px-4 gap-3">Play Me!</button> */}
         </div>
       </div>
-
     </div>
   )
 }

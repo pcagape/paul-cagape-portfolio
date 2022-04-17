@@ -42,7 +42,7 @@ function Contact({ showAlert, isShowContent }) {
 
 
   return (
-    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '}mx-2 py-4 pb-5 mb-3 text-center`}>
+    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '} text-center`}>
 
       <div className="row align-items-md-stretch mx-2">
 
