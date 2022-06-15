@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import GameScene from './scenes/GameScene';
 
 const _CANVAS_ID = 'game-canvas';
 
@@ -18,23 +19,15 @@ function PreloadFn() {
 }
 
 function CreateFn() {
-	this.add.image(300, 150, 'background');
+	this.add.image(0, 0, 'background');
 }
 
 function initGame() {
     var game = new Phaser.Game({
 		type: Phaser.CANVAS,
-		width: 600,
 		height: 360,
-		backgroundColor: "red",
-		// scale: {
-		// 	mode: Phaser.Scale.,
-		// 	// autoCenter: Phaser.Scale.CENTER_BOTH
-		// },
-		scene: {
-			preload: PreloadFn,
-			create: CreateFn
-		},
+		width: 600,
+		scene: [GameScene],
         canvas: document.getElementById(_CANVAS_ID)
 	});
 	

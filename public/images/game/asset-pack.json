@@ -1,11 +1,11 @@
 {
     "section1": {
         "files": [
-            {
-                "url": "images/game/bg.png",
-                "key": "background",
-                "type": "image"
-            }
+            { "url": "images/game/bg.png", "key": "background", "type": "image" },
+            { "url": "images/game/player.png", "key": "player", "type": "image" },
+            { "url": "images/game/exhaust.png", "key": "exhaust", "type": "image" },
+            { "url": "images/game/asteroid1.png", "key": "asteroid1", "type": "image" },
+            { "url": "images/game/asteroid2.png", "key": "asteroid2", "type": "image" }
         ]
     },
     "meta": {

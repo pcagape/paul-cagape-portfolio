@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import '../styles/GameBackground.css';
-// import SpaceGame from '../others/space-game';
+import SpaceGame from '../others/space-game';
 
 function GameBackground() {
   useEffect(() => {
     try{
-    // SpaceGame()
+    SpaceGame()
     }catch(err){}
   }, []);
   return (
