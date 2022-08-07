@@ -21,8 +21,7 @@ function Skills({ isShowContent, children }) {
     { name: 'Spring Boot', imgUrl: './images/icon-spring-boot.png' },
     { name: 'RESTful', imgUrl: './images/icon-restful.png' },
     { name: 'MongoDB', imgUrl: './images/icon-mongodb.png' },
-    { name: 'MySQL', imgUrl: './images/icon-mysql.png' },
-    { name: 'AngularJS', imgUrl: './images/icon-angularjs.png' },
+    { name: 'MySQL', imgUrl: './images/icon-mysql.png' }
   ];
 
   return (

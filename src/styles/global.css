@@ -2,7 +2,7 @@ html, body {
   font-family: 'MyFont1';
   overflow-x: hidden;
   color: var(--COLOR5);
-  background: none;
+  background: var(--COLOR6);
 }
 
 #root {
