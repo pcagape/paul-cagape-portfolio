@@ -22,7 +22,7 @@ function Contact({ showAlert, isShowContent }) {
   const companyMessageMinLength = 10;
   const companyMessageMaxLength = 2500;
 
-  const _MY_PHONENUMBER = "(+63)976-1930-672";
+  const _MY_PHONENUMBER = "(+65)8307 5564";
   const _NEXT_EMAIL_SEND = 120; // Seconds
   const _MY_EMAIL = 'paul.cagape@gmail.com'
   // const _MY_FB = 'https://www.facebook.com/Enjiero/about_work_and_education';
@@ -42,7 +42,7 @@ function Contact({ showAlert, isShowContent }) {
 
 
   return (
-    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '} text-center`}>
+    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '} text-center mb-2`}>
 
       <div className="row align-items-md-stretch mx-2">
 
@@ -89,10 +89,10 @@ function Contact({ showAlert, isShowContent }) {
           <div className="contact-form contacts d-flex flex-column h-100 p-5 bg-light rounded-3 text-center text-middle justify-content-center">
             <label>
               <i className='fas fa-map-marker-alt me-2' />
-              General Santos City, 9500 Phillippines
+              080101 Singapore
             </label>
             <label>
-              <i className='fas fa-phone me-2' />
+              <i className='fab fa-whatsapp me-2' />
               {_MY_PHONENUMBER}
             </label>
             <label>

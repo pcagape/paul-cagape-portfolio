@@ -126,7 +126,7 @@ function App() {
 
       <Alert list={alertList} />
       <Footer />
-      {/* <GameBackground /> */}
+      <GameBackground />
     </Router>
   );
 }

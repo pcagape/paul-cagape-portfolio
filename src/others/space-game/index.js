@@ -1,39 +1,58 @@
-import Phaser from 'phaser';
-import GameScene from './scenes/GameScene';
+import SpaceGame from './game.js';
 
 const _CANVAS_ID = 'game-canvas';
 
-class Boot extends Phaser.Scene {
+function initializeGameBackground(){
+    
+    // Continue if canvas has loaded
+    const canvas = document.getElementById(_CANVAS_ID);
+    if (!canvas)
+        return setTimeout(initializeGameBackground, 100);
 
-	preload() {
-		console.log("at BOOT!");
-		this.load.pack("pack", "images/game/asset-pack.json");
-		// this.load.image('background', 'images/game/bg.png');
-		// this.scene.start("Preload");
-		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("Preload"));
-	}
+    // Frame render
+    window.requestAnimFrame = (function () {
+        return window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function (/* function */ callback, /* DOMElement */ element) {
+                window.setTimeout(callback, 1000 / 60);
+            };
+    })();
+
+    // Space Game
+    const game = new SpaceGame(canvas, window.requestAnimFrame);
+
+    // initialize ig
+    window.ig = { game };
+
+    // on window resize
+    window.onresize = onWindowResize.bind(game);
+
+    // Add eventListeners
+    window.addEventListener("keydown", onKeyPressed.bind(game), true)
+    window.addEventListener("keyup", onKeyUp.bind(game), true)
+    
+    // init
+    game.init();
 }
 
-function PreloadFn() {
-	this.load.pack("pack", "images/game/asset-pack.json");
+function onWindowResize() {
+    this.onWindowResize();
 }
 
-function CreateFn() {
-	this.add.image(0, 0, 'background');
+function onKeyPressed(e) {
+    let key = e.key || '';
+    key = key.toLowerCase();
+    const keyCode = e.keyCode || e.which;
+    this.addKeyDown(key, keyCode);
+}
+function onKeyUp(e) {
+    let key = e.key || '';
+    key = key.toLowerCase();
+    const keyCode = e.keyCode || e.which;
+    this.removeKeyUp(key, keyCode);
 }
 
-function initGame() {
-    var game = new Phaser.Game({
-		type: Phaser.CANVAS,
-		height: 360,
-		width: 600,
-		scene: [GameScene],
-        canvas: document.getElementById(_CANVAS_ID)
-	});
-	
-	// game.scene.add("Preload", Preload);
-	// game.scene.add("Ingame", Ingame);
-	// game.scene.add("Boot", Boot, true);
-}
-
-export default initGame;
+export default initializeGameBackground;

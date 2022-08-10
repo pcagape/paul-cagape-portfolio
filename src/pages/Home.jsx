@@ -30,7 +30,7 @@ export default function Home({ children, isShowContent, triggerTransition }) {
   }
 
   return (
-    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '} pb-5 text-center`}>
+    <div className={`main-content ${isShowContent ? 'main-content-enter ' : 'main-content-exit '}pb-5 px-5 text-center`}>
 
       <div className={`dev-prof col-lg-12 mt-4 mx-auto d-flex text-center text-middle justify-content-center`}>
         <div className='d-flex flex-column text-center text-middle justify-content-center'>

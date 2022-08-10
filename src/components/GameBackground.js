@@ -9,7 +9,7 @@ function GameBackground() {
     }catch(err){}
   }, []);
   return (
-    <canvas id="game-canvas">
+    <canvas id="game-canvas" width="600" height="360">
     </canvas>
   );
 }
