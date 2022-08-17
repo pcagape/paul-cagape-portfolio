@@ -14,10 +14,6 @@ const _MESSAGE2 = `Thank you for visiting my page!`
 export default function Home({ children, isShowContent, triggerTransition }) {
   const { push: goToUrl, location: { pathname: urlPathname } } = useHistory();
 
-  useEffect(() => {
-    // console.log("style", style);
-  }, []);
-
   async function onClickGoToLink(path) {
     // prevent transition when path is already the same
     if (urlPathname === path) return;

@@ -23,7 +23,7 @@ function Player() {
         if (this.exhaustFrame >= 2)
             this.exhaustFrame = 0;
 
-        console.log(this.x, this.y);
+        // console.log(this.x, this.y);
     };
 
     this.draw = function () {
