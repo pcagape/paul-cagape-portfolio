@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 // CSS
-import '../styles/Home.css'
+import '../assets/styles/Home.css'
 
 // Component
 import Button from '../components/Button.js';

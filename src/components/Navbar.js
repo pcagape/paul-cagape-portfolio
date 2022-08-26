@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 
 // CSS
-import '../styles/Navbar.css';
+import '../assets/styles/Navbar.css';
 
 let _pathTransitioning = false;
 

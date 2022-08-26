@@ -1,10 +1,21 @@
 import React, { useRef, useState } from 'react';
 
 // CSS
-import '../styles/Contact.css';
+import '../assets/styles/Contact.css';
 
 // Component
 import Button from '../components/Button.js';
+
+const companyNameMaxLength = 50;
+const companyEmailMaxLength = 320;
+const companyMessageMinLength = 10;
+const companyMessageMaxLength = 2500;
+
+// const _MY_FB = 'https://www.facebook.com/Enjiero/about_work_and_education';
+const _MY_PHONENUMBER = "(+65)8307 5564";
+// const _NEXT_EMAIL_SEND = 120; // Seconds
+const _MY_EMAIL = 'paul.cagape@gmail.com'
+const _MY_LINKEDIN = 'https://www.linkedin.com/in/paul-angielo-cagape-03a24167';
 
 function Contact({ showAlert, isShowContent }) {
   const [companyName, setCompanyName] = useState('');
@@ -16,17 +27,6 @@ function Contact({ showAlert, isShowContent }) {
   const nameInput = useRef(null);
   const emailInput = useRef(null);
   const messageInput = useRef(null);
-
-  const companyNameMaxLength = 50;
-  const companyEmailMaxLength = 320;
-  const companyMessageMinLength = 10;
-  const companyMessageMaxLength = 2500;
-
-  const _MY_PHONENUMBER = "(+65)8307 5564";
-  const _NEXT_EMAIL_SEND = 120; // Seconds
-  const _MY_EMAIL = 'paul.cagape@gmail.com'
-  // const _MY_FB = 'https://www.facebook.com/Enjiero/about_work_and_education';
-  const _MY_LINKEDIN = 'https://www.linkedin.com/in/paul-angielo-cagape-03a24167';
 
   function sendEmail(e) {
     e.preventDefault();

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Footer.css';
+import '../assets/styles/Footer.css';
 
 // const _MY_FB = 'https://www.facebook.com/Enjiero/about_work_and_education';
 const _MY_LINKEDIN = 'https://www.linkedin.com/in/paul-angielo-cagape-03a24167';

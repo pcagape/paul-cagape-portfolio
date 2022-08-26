@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Skills.css';
+import '../assets/styles/Skills.css';
 
 function Skills({ isShowContent, children }) {
   const experienceList = [

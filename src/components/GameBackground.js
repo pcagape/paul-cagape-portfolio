@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import '../styles/GameBackground.css';
-import SpaceGame from '../others/space-game';
+import '../assets/styles/GameBackground.css';
+import SpaceGame from '../libs/space-game';
 
 function GameBackground() {
   useEffect(() => {
